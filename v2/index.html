@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Человеки · ярко">
+<meta property="og:description" content="Человеки: 12 ярких вариантов в стиле книжного клуба ЧЕ">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0;font:14px system-ui;background:#f7f7f5}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Человеки · ярко</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Golos+Text:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@500&family=Oswald:wght@500;700&display=swap">
+<style>
+/* Тихая серая витрина вокруг плакатов. Каждый вариант: плакат 16:9 + ачивка, мерч, экран голосования. */
+:root{
+  --paper:#F1F2F4;      /* фон витрины, холодный серый */
+  --card:#FFFFFF;
+  --ink:#15161A;
+  --muted:#5B5F6B;
+  --line:#D9DBE1;
+  --chip:#E6E8EC;
+  --go:#15161A;         /* кнопка «Утверждаю» */
+  --go-ink:#FFFFFF;
+  --f-body:'Golos Text', 'Helvetica Neue', Arial, sans-serif;
+  --f-mono:'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  --fs-s:14px; --fs-m:17px; --fs-l:20px; --fs-xl:28px; --fs-xxl:44px;
+  --btn-h:44px;
+  --wrap:1320px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111216; --card:#1A1B21; --ink:#ECEDF1; --muted:#A3A7B3; --line:#2C2E36; --chip:#24262D;
+    --go:#ECEDF1; --go-ink:#111216; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111216; --card:#1A1B21; --ink:#ECEDF1; --muted:#A3A7B3; --line:#2C2E36; --chip:#24262D;
+  --go:#ECEDF1; --go-ink:#111216; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--fs-m);line-height:1.5;padding:0 20px}
+.wrap{max-width:var(--wrap);margin:0 auto}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.1}
+p{margin:0}
+
+/* ---------- topbar ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line);margin:0 -20px;padding:10px 20px}
+.top .wrap{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.top b{font-weight:700;font-size:var(--fs-m);margin-right:6px}
+.nav{display:flex;gap:6px;flex-wrap:wrap}
+.nav a{display:inline-flex;align-items:center;height:36px;padding:0 12px;border-radius:999px;background:var(--chip);color:var(--ink);text-decoration:none;font-size:var(--fs-s);font-weight:500;white-space:nowrap}
+.nav a.on{background:var(--ink);color:var(--paper)}
+.nav a[hidden]{display:none}
+.restore{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.restore button{height:36px;padding:0 12px;border-radius:999px;border:1px dashed var(--muted);background:transparent;color:var(--muted);font:500 var(--fs-s) var(--f-body);cursor:pointer}
+
+/* ---------- intro ---------- */
+.intro{padding-block:48px 24px;display:grid;gap:28px}
+.intro h1{font-size:var(--fs-xxl);font-weight:900;letter-spacing:-.02em}
+.lead{font-size:var(--fs-l);max-width:100ch;color:var(--muted)}
+.lead b{color:var(--ink)}
+
+/* ---------- variant ---------- */
+.v{padding-block:44px;border-top:1px solid var(--line);display:grid;gap:18px;scroll-margin-top:72px}
+.v[hidden]{display:none}
+.vh{display:flex;gap:14px 18px;align-items:center;flex-wrap:wrap}
+.vnum{font:500 var(--fs-m) var(--f-mono);background:var(--chip);border-radius:8px;padding:4px 10px}
+.vh h2{font-size:var(--fs-xl);font-weight:900}
+.vh .concept{flex-basis:100%;order:5;color:var(--muted);font-size:var(--fs-m)}
+.acts{margin-left:auto;display:flex;gap:8px}
+.acts button{height:var(--btn-h);border-radius:10px;font:700 var(--fs-m) var(--f-body);cursor:pointer;padding:0 18px}
+.acts .ok{background:var(--go);color:var(--go-ink);border:0}
+.acts .x{width:var(--btn-h);padding:0;background:transparent;border:1px solid var(--line);color:var(--ink);font-size:var(--fs-l);line-height:1}
+.acts button:focus-visible,.nav a:focus-visible,.restore button:focus-visible{outline:3px solid #3B6CFF;outline-offset:2px}
+
+.poster{border-radius:6px;overflow:hidden;line-height:0;box-shadow:0 1px 0 var(--line)}
+.poster svg{width:100%;height:auto;display:block}
+
+.apps{display:grid;grid-template-columns:1fr 1fr 2fr;gap:16px}
+.app{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;grid-template-rows:auto 1fr;grid-template-columns:minmax(0,1fr);gap:8px;min-width:0}
+.app>span{font:500 14px var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.app svg{width:100%;height:auto;display:block;aspect-ratio:1/1;max-height:300px;margin:auto}
+
+/* виджет голосования: стиль задают переменные эскиза */
+.w{background:var(--wbg);color:var(--wfg);border:var(--wborder);border-radius:var(--wr);box-shadow:var(--wshadow,none);padding:18px 20px;display:grid;gap:12px;align-content:start;font-family:var(--f-body)}
+.w-top{display:flex;justify-content:space-between;align-items:center;gap:6px 10px;flex-wrap:wrap}
+.w-club{font-family:var(--wfont);font-size:20px;line-height:1.1;font-weight:var(--wfw,700)}
+.w-tag{font:500 14px var(--f-mono);background:var(--wac);color:var(--wacink);padding:4px 8px;border-radius:calc(var(--wr) / 2);white-space:nowrap}
+.w-q{font-size:17px;font-weight:700;line-height:1.25}
+.w ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.w li{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center}
+.w li b{font-weight:700;font-size:17px;line-height:1.25}
+.w li small{grid-column:1;font-size:14px;opacity:.75}
+.w li em{grid-row:1/3;grid-column:2;font:500 17px var(--f-mono);font-style:normal}
+.w li i{grid-column:1/-1;height:8px;border-radius:calc(var(--wr) / 3);background:color-mix(in srgb,var(--wfg) 14%,transparent);position:relative;overflow:hidden}
+.w li i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--p);background:var(--wac)}
+.w-foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.w-btn{display:inline-flex;align-items:center;height:40px;padding:0 16px;background:var(--wfg);color:var(--wbg);border-radius:var(--wr);font-weight:700;font-size:17px}
+.w-foot small{font-size:14px;opacity:.75}
+
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:14px 18px;border-radius:12px;font-size:var(--fs-m);max-width:min(560px,calc(100vw - 32px));z-index:30;display:grid;gap:6px}
+.toast input{font:500 var(--fs-m) var(--f-body);padding:8px 10px;border-radius:8px;border:0;width:100%}
+.foot{padding-block:40px 60px;color:var(--muted);font-size:var(--fs-s);border-top:1px solid var(--line)}
+
+@media (max-width:1000px){
+  .apps{grid-template-columns:1fr 1fr}
+  .apps .app.wide{grid-column:1/-1}
+    }
+@media (max-width:560px){
+  :root{--fs-xxl:28px}
+  body{padding:0 16px}
+  .top{margin:0 -16px;padding:8px 16px}
+  .app svg{max-width:300px}
+  /* номера вариантов одной строкой с прокруткой: липкая шапка не съедает четверть экрана */
+  .nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px;width:calc(100% + 32px)}
+  .nav::-webkit-scrollbar{display:none}
+  .acts{margin-left:0;width:100%}
+  .acts .ok{flex:1}
+}
+@media (prefers-reduced-motion:no-preference){
+  .nav a,.acts button{transition:background .15s,color .15s}
+}
+
+/* ---------- группы имён (добавлено к витрине книжного клуба) ---------- */
+.grp{padding-block:64px 4px;border-top:3px solid var(--ink);display:flex;gap:6px 16px;align-items:baseline;flex-wrap:wrap}
+.grp-t{font-size:var(--fs-xxl);font-weight:900;letter-spacing:-.02em;line-height:1.1}
+.grp-s{font-size:var(--fs-l);color:var(--muted)}
+.grp + .v{border-top:0}
+.syms{position:absolute;width:0;height:0;overflow:hidden}
+</style>
+
+
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <b>Человеки · название</b>
+    <nav class="nav" id="nav"></nav>
+    <div class="restore" id="restore"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <svg class="syms" aria-hidden="true" focusable="false">
+    <!-- трафаретный «человек»: три слоя, как портрет Че в книжном клубе. Цвета задаются на <use>: --ink тень, --mid полутон, --hi свет -->
+    <symbol id="chel" viewBox="0 0 400 520" overflow="visible">
+      <path d="M30 520 Q34 420 120 388 Q160 376 172 384 L202 420 L232 384 Q244 376 284 388 Q370 420 374 520 Z" style="fill:var(--ink)"/>
+      <path d="M120 388 Q150 402 172 384 L160 424 Q138 412 120 388 Z M284 388 Q254 402 232 384 L244 424 Q266 412 284 388 Z" style="fill:var(--mid)"/>
+      <path d="M172 384 L202 420 L232 384 L222 384 L202 408 L182 384 Z" style="fill:var(--hi)"/>
+      <rect x="182" y="424" width="7" height="54" rx="3" style="fill:var(--hi)"/><rect x="215" y="424" width="7" height="54" rx="3" style="fill:var(--hi)"/>
+      <path d="M170 326 L170 392 L234 392 L234 326 Q202 350 170 326 Z" style="fill:var(--mid)"/>
+      <path d="M170 334 Q202 362 234 334 L234 358 Q202 380 170 358 Z" style="fill:var(--ink)"/>
+      <ellipse cx="133" cy="234" rx="13" ry="23" style="fill:var(--hi)"/><ellipse cx="271" cy="234" rx="13" ry="23" style="fill:var(--mid)"/>
+      <path d="M136 186 Q136 136 202 134 Q268 136 268 188 L268 258 Q264 326 202 348 Q140 326 136 258 Z" style="fill:var(--hi)"/>
+      <path d="M224 136 Q268 144 268 188 L268 258 Q264 326 202 348 Q236 314 242 262 Q248 204 224 136 Z" style="fill:var(--mid)"/>
+      <path d="M150 300 Q162 332 202 348 Q166 340 146 306 Z" style="fill:var(--ink)"/>
+      <path d="M248 258 Q254 302 230 328 Q246 298 242 258 Z" style="fill:var(--ink)"/>
+      <path d="M118 214 Q108 92 204 86 Q300 92 288 212 L274 174 L260 200 L246 162 L228 190 L212 158 L196 188 L178 160 L164 194 L148 168 L134 208 Z" style="fill:var(--ink)"/>
+      <path d="M154 216 Q174 202 196 212 L194 222 Q176 213 156 224 Z M208 212 Q230 202 250 216 L248 224 Q228 213 210 222 Z" style="fill:var(--ink)"/>
+      <path d="M158 240 Q177 220 196 240 Q177 258 158 240 Z M208 240 Q227 220 246 240 Q227 258 208 240 Z" style="fill:var(--ink)"/>
+      <circle cx="182" cy="235" r="5" style="fill:var(--hi)"/><circle cx="232" cy="235" r="5" style="fill:var(--hi)"/>
+      <path d="M206 246 L220 286 Q210 297 194 291 L199 284 Q210 285 213 280 Z" style="fill:var(--ink)"/>
+      <path d="M168 304 Q202 334 238 302 Q232 326 202 330 Q174 326 168 304 Z" style="fill:var(--ink)"/>
+      <path d="M178 309 Q202 322 228 307 L226 314 Q202 324 180 316 Z" style="fill:var(--hi)"/>
+    </symbol>
+    <!-- аксессуары ролей: накладываются тем же x/y/width/height, что и #chel -->
+    <symbol id="acc-cap" viewBox="0 0 400 520" overflow="visible">
+      <path d="M124 200 Q120 92 202 84 Q284 92 280 200 Z" style="fill:var(--mid)"/>
+      <path d="M202 86 V196 M160 96 Q150 150 152 198 M244 96 Q254 150 252 198" style="stroke:var(--ink)" stroke-width="5" fill="none"/>
+      <circle cx="202" cy="86" r="9" style="fill:var(--ink)"/>
+      <path d="M112 196 Q202 166 292 196 Q300 216 278 218 Q202 198 126 218 Q104 216 112 196 Z" style="fill:var(--ink)"/>
+    </symbol>
+    <symbol id="acc-bow" viewBox="0 0 400 520" overflow="visible">
+      <path d="M150 376 L202 396 L254 376 L254 424 L202 404 L150 424 Z" style="fill:var(--mid);stroke:var(--ink)" stroke-width="5" stroke-linejoin="round"/>
+      <rect x="190" y="386" width="24" height="28" rx="6" style="fill:var(--ink)"/>
+    </symbol>
+    <symbol id="acc-nose" viewBox="0 0 400 520" overflow="visible">
+      <circle cx="207" cy="276" r="22" fill="#FF2A1A" style="stroke:var(--ink)" stroke-width="5"/>
+      <circle cx="200" cy="268" r="6" fill="#FFFFFF" opacity=".8"/>
+      <g fill="#FF6B00" style="stroke:var(--ink)" stroke-width="5"><circle cx="112" cy="176" r="30"/><circle cx="100" cy="222" r="28"/><circle cx="118" cy="262" r="24"/><circle cx="292" cy="176" r="30"/><circle cx="304" cy="222" r="28"/><circle cx="286" cy="262" r="24"/></g>
+    </symbol>
+    <symbol id="acc-head" viewBox="0 0 400 520" overflow="visible">
+      <path d="M124 228 Q116 70 202 66 Q288 70 280 228" fill="none" style="stroke:var(--ink)" stroke-width="14" stroke-linecap="round"/>
+      <rect x="110" y="206" width="32" height="56" rx="12" style="fill:var(--ink)"/><rect x="262" y="206" width="32" height="56" rx="12" style="fill:var(--ink)"/>
+      <path d="M128 258 Q140 318 180 318" fill="none" style="stroke:var(--ink)" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="184" cy="318" r="10" style="fill:var(--ink)"/>
+    </symbol>
+    <symbol id="doll" viewBox="0 0 200 320">
+      <circle cx="100" cy="46" r="38"/><rect x="88" y="76" width="24" height="20"/>
+      <rect x="0" y="100" width="200" height="34" rx="17"/>
+      <path d="M66 90 H134 L152 214 H48 Z"/>
+      <path d="M56 206 L36 318 H80 L98 216 Z"/><path d="M144 206 L164 318 H120 L102 216 Z"/>
+    </symbol>
+    <symbol id="glove" viewBox="0 0 160 170">
+      <g fill="#FFFFFF" stroke="#141414" stroke-width="6" stroke-linejoin="round">
+        <rect x="50" y="118" width="62" height="46" rx="10"/>
+        <rect x="34" y="20" width="30" height="80" rx="15"/><rect x="62" y="8" width="30" height="88" rx="15"/><rect x="90" y="20" width="30" height="80" rx="15"/>
+        <ellipse cx="80" cy="96" rx="52" ry="40"/>
+        <ellipse cx="28" cy="98" rx="16" ry="30" transform="rotate(-30 28 98)"/>
+      </g>
+      <path d="M56 146 H106 M56 156 H106" stroke="#141414" stroke-width="5"/>
+    </symbol>
+    <symbol id="shoe" viewBox="0 0 210 110">
+      <path d="M14 74 Q12 30 56 28 L104 26 Q124 26 132 44 L182 58 Q204 64 204 84 L204 90 L14 90 Z" fill="#FFFFFF" stroke="#141414" stroke-width="6" stroke-linejoin="round"/>
+      <rect x="8" y="86" width="200" height="18" rx="9" fill="#141414"/>
+      <path d="M70 32 L80 52 M88 30 L98 50 M106 32 L114 50" stroke="#141414" stroke-width="5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="runner" viewBox="-140 40 540 400" overflow="visible">
+      <path d="M-130 150 H-50 M-140 220 H-60 M-120 290 H-40" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+      <use href="#glove" x="-10" y="170" width="104" height="110" transform="rotate(-30 42 225)"/>
+      <use href="#shoe" x="-30" y="330" width="160" height="84" transform="rotate(18 50 372)"/>
+      <ellipse cx="180" cy="236" rx="62" ry="82" transform="rotate(16 180 236)" fill="#FFFFFF" stroke="#141414" stroke-width="6"/>
+      <text x="186" y="254" text-anchor="middle" transform="rotate(16 180 236)" font-family="Lobster, 'Brush Script MT', cursive" font-size="46" fill="#E4232B">РН</text>
+      <circle cx="214" cy="112" r="46" fill="#FFD9B8" stroke="#141414" stroke-width="6"/>
+      <path d="M170 104 Q172 60 216 60 Q258 62 262 98 Z" fill="#141414"/><path d="M246 92 Q280 90 294 100 L262 104 Z" fill="#141414"/>
+      <circle cx="212" cy="118" r="6" fill="#141414"/><circle cx="236" cy="120" r="6" fill="#141414"/>
+      <path d="M204 136 Q222 152 242 138" fill="none" stroke="#141414" stroke-width="5" stroke-linecap="round"/>
+      <use href="#glove" x="270" y="120" width="104" height="110" transform="rotate(32 322 175)"/>
+      <use href="#shoe" x="220" y="320" width="160" height="84" transform="rotate(-12 300 362)"/>
+    </symbol>
+  </svg>
+
+  <section class="intro">
+    <h1>Человеки: 12 ярких вариантов</h1>
+    <p class="lead">Плакаты-шутки, трафаретный герой и кислотные цвета, как у книжного клуба ЧЕ. Главное имя <b>Человеки</b>, 10 вариантов. Рядом <b>Руки-ноги</b> и <b>Агентство Анастасии Бариновой</b>. В каждом варианте плакат, значок рейтинга, мерч и экран смены.</p>
+  </section>
+
+  <div class="grp"><p class="grp-t">Человеки</p><p class="grp-s">главное имя · 10 вариантов</p></div>
+
+  <section class="v" id="ч8" data-name="Человеки · не персонал">
+    <div class="vh">
+      <span class="vnum">Ч8</span><h2>Не персонал. Человеки</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю Ч8</button><button class="x" type="button" aria-label="Убрать Ч8 из сравнения">×</button></div>
+      <p class="concept">концепция: главная мысль бренда одной фразой · подход: раскладка «Читай как Чегевара», кислотный лайм, розовый круг, трафаретный герой в кепке</p>
+    </div>
+    <div class="poster">
+      <svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Плакат Человеки: не персонал, человеки, трафаретный герой на розовом круге">
+        <rect width="1600" height="900" fill="#D4FF3A"/><circle cx="1240" cy="470" r="330" fill="#FF2E88"/><use href="#chel" x="880" y="70" width="692.3" height="900" style="--mid:#111111;--ink:#111111;--hi:#D4FF3A"/><use href="#acc-cap" x="880" y="70" width="692.3" height="900" style="--mid:#111111;--ink:#111111;--hi:#D4FF3A"/><text class="fit" data-max="780" x="72" y="300" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="156" fill="#111111">НЕ ПЕРСОНАЛ.</text><rect class="box" data-for="b8" data-pad="28" x="60" y="344" width="816" height="220" fill="#111111"/><text class="fit" data-max="760" x="88" y="520" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="196" fill="#D4FF3A" id="b8">ЧЕЛОВЕКИ</text><text class="fit" data-max="760" x="72" y="660" font-family="'Golos Text', Arial, sans-serif" font-weight="600" font-size="48" fill="#111111">Аниматоры, промо, официанты.</text><text class="fit" data-max="760" x="72" y="724" font-family="'Golos Text', Arial, sans-serif" font-weight="600" font-size="48" fill="#111111">Приедут к сбору. Уйдут после уборки.</text><text x="72" y="842" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="36" fill="#111111" letter-spacing="3">АГЕНТСТВО ПЕРСОНАЛА ДЛЯ ИВЕНТОВ</text>
+      </svg>
+    </div>
+    <div class="apps" data-v="ч8"></div>
+  </section>
+  <section class="v" id="ч9" data-name="Человеки · бригадир всё сказал">
+    <div class="vh">
+      <span class="vnum">Ч9</span><h2>Бригадир всё сказал</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю Ч9</button><button class="x" type="button" aria-label="Убрать Ч9 из сравнения">×</button></div>
+      <p class="concept">концепция: мем из рабочего чата, смена собирается галочкой · подход: раскладка «Вождь всё сказал», пузырь на чёрном, жёлтая плашка, герой в гарнитуре</p>
+    </div>
+    <div class="poster">
+      <svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Плакат Человеки: пузырь «Кто не поставил галочку, тот не на смене», бригадир всё сказал">
+        <rect width="1600" height="900" fill="#111111"/><use href="#chel" x="-150" y="60" width="769.2" height="1000" style="--mid:#FFE600;--ink:#111111;--hi:#F4EFE6"/><use href="#acc-head" x="-150" y="60" width="769.2" height="1000" style="--mid:#FFE600;--ink:#111111;--hi:#F4EFE6"/><path d="M660 70 H1500 a40 40 0 0 1 40 40 V350 a40 40 0 0 1 -40 40 H770 L620 470 L690 390 H660 a40 40 0 0 1 -40 -40 V110 a40 40 0 0 1 40 -40 Z" fill="#FFFFFF"/><text class="fit" data-max="830" x="668" y="190" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="66" fill="#111111">КТО НЕ ПОСТАВИЛ ГАЛОЧКУ,</text><text class="fit" data-max="830" x="668" y="320" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="112" fill="#111111">ТОТ НЕ НА СМЕНЕ</text><rect x="600" y="500" width="940" height="116" fill="#FFE600"/><text class="fit" data-max="884" x="628" y="580" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="58" fill="#111111">БРИГАДИР ВСЁ СКАЗАЛ. ЖМИ ГАЛОЧКУ</text><text class="fit" data-max="930" x="604" y="696" font-family="'Golos Text', Arial, sans-serif" font-weight="500" font-size="44" fill="#F4EFE6">Смена собирается прямо в телеге.</text><text class="fit" data-max="600" x="600" y="840" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="120" fill="#FFE600">ЧЕЛОВЕКИ</text>
+      </svg>
+    </div>
+    <div class="apps" data-v="ч9"></div>
+  </section>
+  <section class="v" id="ч10" data-name="Человеки · поп-арт ролей">
+    <div class="vh">
+      <span class="vnum">Ч10</span><h2>Человеки на любой ивент</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю Ч10</button><button class="x" type="button" aria-label="Убрать Ч10 из сравнения">×</button></div>
+      <p class="concept">концепция: каталог ролей как поп-арт, один герой в четырёх профессиях · подход: раскладка «Вива ла книга», четыре кислотные пары, бабочка, клоунский нос, кепка, гарнитура</p>
+    </div>
+    <div class="poster">
+      <svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Плакат Человеки: поп-арт из четырёх портретов официанта, аниматора, хелпера и промо">
+        <rect width="1600" height="900" fill="#FFE600"/><defs><clipPath id="c100"><rect x="800" y="0" width="400" height="450"/></clipPath><clipPath id="c101"><rect x="1200" y="0" width="400" height="450"/></clipPath><clipPath id="c102"><rect x="800" y="450" width="400" height="450"/></clipPath><clipPath id="c103"><rect x="1200" y="450" width="400" height="450"/></clipPath></defs><rect x="800" y="0" width="400" height="450" fill="#FF2E88"/><g clip-path="url(#c100)"><use href="#chel" x="810" y="10" width="378.5" height="492" style="--mid:#FFE600;--ink:#111111;--hi:#FFFFFF"/><use href="#acc-bow" x="810" y="10" width="378.5" height="492" style="--mid:#FFE600;--ink:#111111;--hi:#FFFFFF"/></g><rect x="818" y="18" width="224" height="58" fill="#111111"/><text x="834" y="62" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="40" fill="#FFE600">ОФИЦИАНТ</text><rect x="1200" y="0" width="400" height="450" fill="#00C2FF"/><g clip-path="url(#c101)"><use href="#chel" x="1210" y="10" width="378.5" height="492" style="--mid:#FF2A1A;--ink:#111111;--hi:#FFFFFF"/><use href="#acc-nose" x="1210" y="10" width="378.5" height="492" style="--mid:#FF2A1A;--ink:#111111;--hi:#FFFFFF"/></g><rect x="1218" y="18" width="224" height="58" fill="#111111"/><text x="1234" y="62" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="40" fill="#FFE600">АНИМАТОР</text><rect x="800" y="450" width="400" height="450" fill="#7B3CFF"/><g clip-path="url(#c102)"><use href="#chel" x="810" y="460" width="378.5" height="492" style="--mid:#D4FF3A;--ink:#111111;--hi:#FFFFFF"/><use href="#acc-cap" x="810" y="460" width="378.5" height="492" style="--mid:#D4FF3A;--ink:#111111;--hi:#FFFFFF"/></g><rect x="818" y="468" width="176" height="58" fill="#111111"/><text x="834" y="512" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="40" fill="#FFE600">ХЕЛПЕР</text><rect x="1200" y="450" width="400" height="450" fill="#FF6B00"/><g clip-path="url(#c103)"><use href="#chel" x="1210" y="460" width="378.5" height="492" style="--mid:#1F2BFF;--ink:#111111;--hi:#FFF4E0"/><use href="#acc-head" x="1210" y="460" width="378.5" height="492" style="--mid:#1F2BFF;--ink:#111111;--hi:#FFF4E0"/></g><rect x="1218" y="468" width="152" height="58" fill="#111111"/><text x="1234" y="512" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="40" fill="#FFE600">ПРОМО</text><text class="fit" data-max="700" x="60" y="290" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="200" fill="#FF2A1A">ЧЕЛОВЕКИ</text><text class="fit" data-max="700" x="64" y="420" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="108" fill="#FF2A1A">НА ЛЮБОЙ ИВЕНТ</text><text class="fit" data-max="700" x="64" y="560" font-family="'Golos Text', Arial, sans-serif" font-weight="600" font-size="42" fill="#111111">Официант, аниматор, хелпер, промо.</text><text class="fit" data-max="700" x="64" y="620" font-family="'Golos Text', Arial, sans-serif" font-weight="600" font-size="42" fill="#111111">Выбирай, кого позвать.</text><rect x="60" y="720" width="640" height="104" fill="#111111"/><text class="fit" data-max="584" x="88" y="798" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="60" fill="#FFE600">ПЕРСОНАЛ ДЛЯ ИВЕНТОВ</text>
+      </svg>
+    </div>
+    <div class="apps" data-v="ч10"></div>
+  </section>
+  <section class="v" id="ч11" data-name="Человеки · лайк, репост, смена">
+    <div class="vh">
+      <span class="vnum">Ч11</span><h2>Лайк. Репост. Смена.</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю Ч11</button><button class="x" type="button" aria-label="Убрать Ч11 из сравнения">×</button></div>
+      <p class="concept">концепция: подработка, которую не стыдно выложить · подход: раскладка «А ты всё ещё в сторис?», красное на жёлтом, герой в экране сторис</p>
+    </div>
+    <div class="poster">
+      <svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Плакат Человеки: лайк, репост, смена, герой в экране сторис">
+        <rect width="1600" height="900" fill="#FFE600"/><defs><clipPath id="c11"><rect x="1010" y="40" width="490" height="820" rx="50"/></clipPath></defs><rect x="1010" y="40" width="490" height="820" rx="50" fill="#FF2E88"/><g clip-path="url(#c11)"><use href="#chel" x="955" y="190" width="600.0" height="780" style="--mid:#FFE600;--ink:#111111;--hi:#FFFFFF"/><use href="#acc-cap" x="955" y="190" width="600.0" height="780" style="--mid:#FFE600;--ink:#111111;--hi:#FFFFFF"/></g><rect x="1036" y="78" width="100" height="10" rx="5" fill="#FFFFFF" opacity="1"/><rect x="1148" y="78" width="100" height="10" rx="5" fill="#FFFFFF" opacity="1"/><rect x="1260" y="78" width="100" height="10" rx="5" fill="#FFFFFF" opacity="0.45"/><rect x="1372" y="78" width="100" height="10" rx="5" fill="#FFFFFF" opacity="0.45"/><circle cx="1062" cy="138" r="24" fill="#FFFFFF"/><text x="1100" y="150" font-family="'Golos Text', Arial, sans-serif" font-weight="700" font-size="34" fill="#FFFFFF">человеки</text><rect x="1036" y="770" width="438" height="60" rx="30" fill="#111111" fill-opacity=".55" stroke="#FFFFFF" stroke-width="3"/><text x="1066" y="810" font-family="'Golos Text', Arial, sans-serif" font-weight="600" font-size="30" fill="#FFFFFF">беру смену!</text><rect x="1010" y="40" width="490" height="820" rx="50" fill="none" stroke="#111111" stroke-width="8"/><text class="fit" data-max="820" x="64" y="250" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="200" fill="#FF2A1A">ЛАЙК.</text><text class="fit" data-max="820" x="64" y="450" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="200" fill="#FF2A1A">РЕПОСТ.</text><rect class="box" data-for="b11" data-pad="28" x="52" y="460" width="876" height="224" fill="#111111"/><text class="fit" data-max="820" x="80" y="640" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="200" fill="#FFE600" id="b11">СМЕНА.</text><text class="fit" data-max="860" x="64" y="760" font-family="'Golos Text', Arial, sans-serif" font-weight="600" font-size="46" fill="#111111">Подработка, которую не стыдно</text><text class="fit" data-max="860" x="64" y="822" font-family="'Golos Text', Arial, sans-serif" font-weight="600" font-size="46" fill="#111111">выложить в сторис.</text>
+      </svg>
+    </div>
+    <div class="apps" data-v="ч11"></div>
+  </section>
+  <section class="v" id="ч12" data-name="Человеки · банк человеков">
+    <div class="vh">
+      <span class="vnum">Ч12</span><h2>Банк человеков</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю Ч12</button><button class="x" type="button" aria-label="Убрать Ч12 из сравнения">×</button></div>
+      <p class="concept">концепция: смена как валюта, рейтинг растёт вместе со ставкой · подход: банкнота клуба, но модно: красная с жёлтым гильошем и розовым медальоном</p>
+    </div>
+    <div class="poster">
+      <svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Плакат Человеки: красная банкнота «1 смена» с трафаретным официантом в медальоне">
+        <rect width="1600" height="900" fill="#FF2A1A"/><ellipse cx="1150" cy="450" rx="430" ry="150" fill="none" stroke="#FFE600" stroke-width="2" opacity=".35" transform="rotate(0 1150 450)"/><ellipse cx="1150" cy="450" rx="430" ry="150" fill="none" stroke="#FFE600" stroke-width="2" opacity=".35" transform="rotate(15 1150 450)"/><ellipse cx="1150" cy="450" rx="430" ry="150" fill="none" stroke="#FFE600" stroke-width="2" opacity=".35" transform="rotate(30 1150 450)"/><ellipse cx="1150" cy="450" rx="430" ry="150" fill="none" stroke="#FFE600" stroke-width="2" opacity=".35" transform="rotate(45 1150 450)"/><ellipse cx="1150" cy="450" rx="430" ry="150" fill="none" stroke="#FFE600" stroke-width="2" opacity=".35" transform="rotate(60 1150 450)"/><ellipse cx="1150" cy="450" rx="430" ry="150" fill="none" stroke="#FFE600" stroke-width="2" opacity=".35" transform="rotate(75 1150 450)"/><ellipse cx="1150" cy="450" rx="430" ry="150" fill="none" stroke="#FFE600" stroke-width="2" opacity=".35" transform="rotate(90 1150 450)"/><ellipse cx="1150" cy="450" rx="430" ry="150" fill="none" stroke="#FFE600" stroke-width="2" opacity=".35" transform="rotate(105 1150 450)"/><ellipse cx="1150" cy="450" rx="430" ry="150" fill="none" stroke="#FFE600" stroke-width="2" opacity=".35" transform="rotate(120 1150 450)"/><ellipse cx="1150" cy="450" rx="430" ry="150" fill="none" stroke="#FFE600" stroke-width="2" opacity=".35" transform="rotate(135 1150 450)"/><ellipse cx="1150" cy="450" rx="430" ry="150" fill="none" stroke="#FFE600" stroke-width="2" opacity=".35" transform="rotate(150 1150 450)"/><ellipse cx="1150" cy="450" rx="430" ry="150" fill="none" stroke="#FFE600" stroke-width="2" opacity=".35" transform="rotate(165 1150 450)"/><rect x="24" y="24" width="1552" height="852" fill="none" stroke="#FFE600" stroke-width="8"/><rect x="44" y="44" width="1512" height="812" fill="none" stroke="#FFE600" stroke-width="2"/><defs><clipPath id="c12"><ellipse cx="1150" cy="450" rx="250" ry="310"/></clipPath></defs><ellipse cx="1150" cy="450" rx="250" ry="310" fill="#FF2E88" stroke="#FFE600" stroke-width="10"/><g clip-path="url(#c12)"><use href="#chel" x="890" y="130" width="523.1" height="680" style="--mid:#FFE600;--ink:#111111;--hi:#FFFFFF"/><use href="#acc-bow" x="890" y="130" width="523.1" height="680" style="--mid:#FFE600;--ink:#111111;--hi:#FFFFFF"/></g><text x="96" y="150" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="60" fill="#FFE600" letter-spacing="6">БАНК ЧЕЛОВЕКОВ</text><text x="98" y="208" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="38" fill="#111111" letter-spacing="4">ЧЛ 0000001</text><text x="80" y="610" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="420" fill="#FFE600">1</text><text class="fit" data-max="470" x="330" y="470" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="170" fill="#FFE600">СМЕНА</text><text class="fit" data-max="470" x="336" y="550" font-family="'Golos Text', Arial, sans-serif" font-weight="600" font-size="46" fill="#FFFFFF">в копилку рейтинга</text><text class="fit" data-max="700" x="96" y="740" font-family="'Golos Text', Arial, sans-serif" font-weight="600" font-size="48" fill="#FFFFFF">Рейтинг растёт, ставка тоже.</text><text class="fit" data-max="700" x="96" y="802" font-family="'Golos Text', Arial, sans-serif" font-weight="600" font-size="48" fill="#FFFFFF">Курс стабильный.</text><text x="1500" y="150" text-anchor="end" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="90" fill="#FFE600">1</text><text x="1500" y="830" text-anchor="end" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="90" fill="#FFE600">1</text>
+      </svg>
+    </div>
+    <div class="apps" data-v="ч12"></div>
+  </section>
+  <section class="v" id="ч13" data-name="Человеки · соединяйтесь, лучи">
+    <div class="vh">
+      <span class="vnum">Ч13</span><h2>Человеки всех ивентов, соединяйтесь!</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю Ч13</button><button class="x" type="button" aria-label="Убрать Ч13 из сравнения">×</button></div>
+      <p class="concept">концепция: агитплакат с юмором про пятницу · подход: красное поле, жёлтые лучи из-за героя, слово в чёрной плашке</p>
+    </div>
+    <div class="poster">
+      <svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Плакат Человеки всех ивентов, соединяйтесь: жёлтые лучи на красном">
+        <rect width="1600" height="900" fill="#FF2A1A"/><path d="M1150 470 L2550 470 L2538 653 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L2502 832 L2443 1006 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L2362 1170 L2261 1322 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L2140 1460 L2002 1581 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L1850 1682 L1686 1763 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L1512 1822 L1333 1858 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L1150 1870 L967 1858 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L788 1822 L614 1763 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L450 1682 L298 1581 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L160 1460 L39 1322 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L-62 1170 L-143 1006 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L-202 832 L-238 653 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L-250 470 L-238 287 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L-202 108 L-143 -66 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L-62 -230 L39 -382 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L160 -520 L298 -641 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L450 -742 L614 -823 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L788 -882 L967 -918 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L1150 -930 L1333 -918 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L1512 -882 L1686 -823 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L1850 -742 L2002 -641 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L2140 -520 L2261 -382 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L2362 -230 L2443 -66 Z" fill="#FFE600" opacity=".18"/><path d="M1150 470 L2502 108 L2538 287 Z" fill="#FFE600" opacity=".18"/><circle cx="1150" cy="470" r="330" fill="#FFE600"/><use href="#chel" x="800" y="100" width="676.9" height="880" style="--mid:#111111;--ink:#111111;--hi:#FFE600"/><use href="#acc-cap" x="800" y="100" width="676.9" height="880" style="--mid:#111111;--ink:#111111;--hi:#FFE600"/><text class="fit" data-max="700" x="64" y="230" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="170" fill="#FFE600">ЧЕЛОВЕКИ</text><text class="fit" data-max="700" x="68" y="350" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="104" fill="#FFE600">ВСЕХ ИВЕНТОВ,</text><rect class="box" data-for="b13" data-pad="28" x="52" y="405" width="736" height="143" fill="#111111"/><text class="fit" data-max="680" x="80" y="520" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="128" fill="#FFE600" id="b13">СОЕДИНЯЙТЕСЬ!</text><text class="fit" data-max="700" x="68" y="680" font-family="'Golos Text', Arial, sans-serif" font-weight="600" font-size="50" fill="#FFFFFF">Смена в пятницу.</text><text class="fit" data-max="700" x="68" y="744" font-family="'Golos Text', Arial, sans-serif" font-weight="600" font-size="50" fill="#FFFFFF">Пятница теперь весёлая.</text>
+      </svg>
+    </div>
+    <div class="apps" data-v="ч13"></div>
+  </section>
+  <section class="v" id="ч14" data-name="Человеки · за опоздание расстрел">
+    <div class="vh">
+      <span class="vnum">Ч14</span><h2>За опоздание: расстрел</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю Ч14</button><button class="x" type="button" aria-label="Убрать Ч14 из сравнения">×</button></div>
+      <p class="concept">концепция: чёрный юмор как у плаката клуба «За непрочитанную главу» · подход: розовый фон, жёлтый круг, герой в гарнитуре, развязка мелким шрифтом</p>
+    </div>
+    <div class="poster">
+      <svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Плакат Человеки: за опоздание на смену расстрел, шутка, просто минус к рейтингу">
+        <rect width="1600" height="900" fill="#FF4FA3"/><circle cx="1240" cy="470" r="330" fill="#FFE600"/><use href="#chel" x="880" y="70" width="692.3" height="900" style="--mid:#111111;--ink:#111111;--hi:#FF4FA3"/><use href="#acc-head" x="880" y="70" width="692.3" height="900" style="--mid:#111111;--ink:#111111;--hi:#FF4FA3"/><text class="fit" data-max="780" x="72" y="300" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="100" fill="#111111">ЗА ОПОЗДАНИЕ НА СМЕНУ</text><rect class="box" data-for="b14" data-pad="28" x="60" y="350" width="816" height="224" fill="#111111"/><text class="fit" data-max="760" x="88" y="530" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="200" fill="#FF4FA3" id="b14">РАССТРЕЛ</text><text class="fit" data-max="760" x="72" y="680" font-family="'Golos Text', Arial, sans-serif" font-weight="700" font-size="54" fill="#111111">Шутка.</text><text class="fit" data-max="760" x="72" y="748" font-family="'Golos Text', Arial, sans-serif" font-weight="700" font-size="54" fill="#111111">Просто минус к рейтингу.</text>
+      </svg>
+    </div>
+    <div class="apps" data-v="ч14"></div>
+  </section>
+  <section class="v" id="ч15" data-name="Человеки · трафарет на стене">
+    <div class="vh">
+      <span class="vnum">Ч15</span><h2>Человек человеку хелпер</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю Ч15</button><button class="x" type="button" aria-label="Убрать Ч15 из сравнения">×</button></div>
+      <p class="concept">концепция: «человек человеку хелпер» вместо «волк» · подход: уличный трафарет баллончиком, подтёки, кислотный тег поверх кирпича</p>
+    </div>
+    <div class="poster">
+      <svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Плакат Человеки: трафарет баллончиком на кирпичной стене, человек человеку хелпер">
+        <rect width="1600" height="900" fill="#D9D3CA"/><path d="M0 0 H1600" stroke="#B9B2A8" stroke-width="3"/><path d="M-60 0 V60" stroke="#B9B2A8" stroke-width="3"/><path d="M60 0 V60" stroke="#B9B2A8" stroke-width="3"/><path d="M180 0 V60" stroke="#B9B2A8" stroke-width="3"/><path d="M300 0 V60" stroke="#B9B2A8" stroke-width="3"/><path d="M420 0 V60" stroke="#B9B2A8" stroke-width="3"/><path d="M540 0 V60" stroke="#B9B2A8" stroke-width="3"/><path d="M660 0 V60" stroke="#B9B2A8" stroke-width="3"/><path d="M780 0 V60" stroke="#B9B2A8" stroke-width="3"/><path d="M900 0 V60" stroke="#B9B2A8" stroke-width="3"/><path d="M1020 0 V60" stroke="#B9B2A8" stroke-width="3"/><path d="M1140 0 V60" stroke="#B9B2A8" stroke-width="3"/><path d="M1260 0 V60" stroke="#B9B2A8" stroke-width="3"/><path d="M1380 0 V60" stroke="#B9B2A8" stroke-width="3"/><path d="M1500 0 V60" stroke="#B9B2A8" stroke-width="3"/><path d="M0 60 H1600" stroke="#B9B2A8" stroke-width="3"/><path d="M0 60 V120" stroke="#B9B2A8" stroke-width="3"/><path d="M120 60 V120" stroke="#B9B2A8" stroke-width="3"/><path d="M240 60 V120" stroke="#B9B2A8" stroke-width="3"/><path d="M360 60 V120" stroke="#B9B2A8" stroke-width="3"/><path d="M480 60 V120" stroke="#B9B2A8" stroke-width="3"/><path d="M600 60 V120" stroke="#B9B2A8" stroke-width="3"/><path d="M720 60 V120" stroke="#B9B2A8" stroke-width="3"/><path d="M840 60 V120" stroke="#B9B2A8" stroke-width="3"/><path d="M960 60 V120" stroke="#B9B2A8" stroke-width="3"/><path d="M1080 60 V120" stroke="#B9B2A8" stroke-width="3"/><path d="M1200 60 V120" stroke="#B9B2A8" stroke-width="3"/><path d="M1320 60 V120" stroke="#B9B2A8" stroke-width="3"/><path d="M1440 60 V120" stroke="#B9B2A8" stroke-width="3"/><path d="M1560 60 V120" stroke="#B9B2A8" stroke-width="3"/><path d="M0 120 H1600" stroke="#B9B2A8" stroke-width="3"/><path d="M-60 120 V180" stroke="#B9B2A8" stroke-width="3"/><path d="M60 120 V180" stroke="#B9B2A8" stroke-width="3"/><path d="M180 120 V180" stroke="#B9B2A8" stroke-width="3"/><path d="M300 120 V180" stroke="#B9B2A8" stroke-width="3"/><path d="M420 120 V180" stroke="#B9B2A8" stroke-width="3"/><path d="M540 120 V180" stroke="#B9B2A8" stroke-width="3"/><path d="M660 120 V180" stroke="#B9B2A8" stroke-width="3"/><path d="M780 120 V180" stroke="#B9B2A8" stroke-width="3"/><path d="M900 120 V180" stroke="#B9B2A8" stroke-width="3"/><path d="M1020 120 V180" stroke="#B9B2A8" stroke-width="3"/><path d="M1140 120 V180" stroke="#B9B2A8" stroke-width="3"/><path d="M1260 120 V180" stroke="#B9B2A8" stroke-width="3"/><path d="M1380 120 V180" stroke="#B9B2A8" stroke-width="3"/><path d="M1500 120 V180" stroke="#B9B2A8" stroke-width="3"/><path d="M0 180 H1600" stroke="#B9B2A8" stroke-width="3"/><path d="M0 180 V240" stroke="#B9B2A8" stroke-width="3"/><path d="M120 180 V240" stroke="#B9B2A8" stroke-width="3"/><path d="M240 180 V240" stroke="#B9B2A8" stroke-width="3"/><path d="M360 180 V240" stroke="#B9B2A8" stroke-width="3"/><path d="M480 180 V240" stroke="#B9B2A8" stroke-width="3"/><path d="M600 180 V240" stroke="#B9B2A8" stroke-width="3"/><path d="M720 180 V240" stroke="#B9B2A8" stroke-width="3"/><path d="M840 180 V240" stroke="#B9B2A8" stroke-width="3"/><path d="M960 180 V240" stroke="#B9B2A8" stroke-width="3"/><path d="M1080 180 V240" stroke="#B9B2A8" stroke-width="3"/><path d="M1200 180 V240" stroke="#B9B2A8" stroke-width="3"/><path d="M1320 180 V240" stroke="#B9B2A8" stroke-width="3"/><path d="M1440 180 V240" stroke="#B9B2A8" stroke-width="3"/><path d="M1560 180 V240" stroke="#B9B2A8" stroke-width="3"/><path d="M0 240 H1600" stroke="#B9B2A8" stroke-width="3"/><path d="M-60 240 V300" stroke="#B9B2A8" stroke-width="3"/><path d="M60 240 V300" stroke="#B9B2A8" stroke-width="3"/><path d="M180 240 V300" stroke="#B9B2A8" stroke-width="3"/><path d="M300 240 V300" stroke="#B9B2A8" stroke-width="3"/><path d="M420 240 V300" stroke="#B9B2A8" stroke-width="3"/><path d="M540 240 V300" stroke="#B9B2A8" stroke-width="3"/><path d="M660 240 V300" stroke="#B9B2A8" stroke-width="3"/><path d="M780 240 V300" stroke="#B9B2A8" stroke-width="3"/><path d="M900 240 V300" stroke="#B9B2A8" stroke-width="3"/><path d="M1020 240 V300" stroke="#B9B2A8" stroke-width="3"/><path d="M1140 240 V300" stroke="#B9B2A8" stroke-width="3"/><path d="M1260 240 V300" stroke="#B9B2A8" stroke-width="3"/><path d="M1380 240 V300" stroke="#B9B2A8" stroke-width="3"/><path d="M1500 240 V300" stroke="#B9B2A8" stroke-width="3"/><path d="M0 300 H1600" stroke="#B9B2A8" stroke-width="3"/><path d="M0 300 V360" stroke="#B9B2A8" stroke-width="3"/><path d="M120 300 V360" stroke="#B9B2A8" stroke-width="3"/><path d="M240 300 V360" stroke="#B9B2A8" stroke-width="3"/><path d="M360 300 V360" stroke="#B9B2A8" stroke-width="3"/><path d="M480 300 V360" stroke="#B9B2A8" stroke-width="3"/><path d="M600 300 V360" stroke="#B9B2A8" stroke-width="3"/><path d="M720 300 V360" stroke="#B9B2A8" stroke-width="3"/><path d="M840 300 V360" stroke="#B9B2A8" stroke-width="3"/><path d="M960 300 V360" stroke="#B9B2A8" stroke-width="3"/><path d="M1080 300 V360" stroke="#B9B2A8" stroke-width="3"/><path d="M1200 300 V360" stroke="#B9B2A8" stroke-width="3"/><path d="M1320 300 V360" stroke="#B9B2A8" stroke-width="3"/><path d="M1440 300 V360" stroke="#B9B2A8" stroke-width="3"/><path d="M1560 300 V360" stroke="#B9B2A8" stroke-width="3"/><path d="M0 360 H1600" stroke="#B9B2A8" stroke-width="3"/><path d="M-60 360 V420" stroke="#B9B2A8" stroke-width="3"/><path d="M60 360 V420" stroke="#B9B2A8" stroke-width="3"/><path d="M180 360 V420" stroke="#B9B2A8" stroke-width="3"/><path d="M300 360 V420" stroke="#B9B2A8" stroke-width="3"/><path d="M420 360 V420" stroke="#B9B2A8" stroke-width="3"/><path d="M540 360 V420" stroke="#B9B2A8" stroke-width="3"/><path d="M660 360 V420" stroke="#B9B2A8" stroke-width="3"/><path d="M780 360 V420" stroke="#B9B2A8" stroke-width="3"/><path d="M900 360 V420" stroke="#B9B2A8" stroke-width="3"/><path d="M1020 360 V420" stroke="#B9B2A8" stroke-width="3"/><path d="M1140 360 V420" stroke="#B9B2A8" stroke-width="3"/><path d="M1260 360 V420" stroke="#B9B2A8" stroke-width="3"/><path d="M1380 360 V420" stroke="#B9B2A8" stroke-width="3"/><path d="M1500 360 V420" stroke="#B9B2A8" stroke-width="3"/><path d="M0 420 H1600" stroke="#B9B2A8" stroke-width="3"/><path d="M0 420 V480" stroke="#B9B2A8" stroke-width="3"/><path d="M120 420 V480" stroke="#B9B2A8" stroke-width="3"/><path d="M240 420 V480" stroke="#B9B2A8" stroke-width="3"/><path d="M360 420 V480" stroke="#B9B2A8" stroke-width="3"/><path d="M480 420 V480" stroke="#B9B2A8" stroke-width="3"/><path d="M600 420 V480" stroke="#B9B2A8" stroke-width="3"/><path d="M720 420 V480" stroke="#B9B2A8" stroke-width="3"/><path d="M840 420 V480" stroke="#B9B2A8" stroke-width="3"/><path d="M960 420 V480" stroke="#B9B2A8" stroke-width="3"/><path d="M1080 420 V480" stroke="#B9B2A8" stroke-width="3"/><path d="M1200 420 V480" stroke="#B9B2A8" stroke-width="3"/><path d="M1320 420 V480" stroke="#B9B2A8" stroke-width="3"/><path d="M1440 420 V480" stroke="#B9B2A8" stroke-width="3"/><path d="M1560 420 V480" stroke="#B9B2A8" stroke-width="3"/><path d="M0 480 H1600" stroke="#B9B2A8" stroke-width="3"/><path d="M-60 480 V540" stroke="#B9B2A8" stroke-width="3"/><path d="M60 480 V540" stroke="#B9B2A8" stroke-width="3"/><path d="M180 480 V540" stroke="#B9B2A8" stroke-width="3"/><path d="M300 480 V540" stroke="#B9B2A8" stroke-width="3"/><path d="M420 480 V540" stroke="#B9B2A8" stroke-width="3"/><path d="M540 480 V540" stroke="#B9B2A8" stroke-width="3"/><path d="M660 480 V540" stroke="#B9B2A8" stroke-width="3"/><path d="M780 480 V540" stroke="#B9B2A8" stroke-width="3"/><path d="M900 480 V540" stroke="#B9B2A8" stroke-width="3"/><path d="M1020 480 V540" stroke="#B9B2A8" stroke-width="3"/><path d="M1140 480 V540" stroke="#B9B2A8" stroke-width="3"/><path d="M1260 480 V540" stroke="#B9B2A8" stroke-width="3"/><path d="M1380 480 V540" stroke="#B9B2A8" stroke-width="3"/><path d="M1500 480 V540" stroke="#B9B2A8" stroke-width="3"/><path d="M0 540 H1600" stroke="#B9B2A8" stroke-width="3"/><path d="M0 540 V600" stroke="#B9B2A8" stroke-width="3"/><path d="M120 540 V600" stroke="#B9B2A8" stroke-width="3"/><path d="M240 540 V600" stroke="#B9B2A8" stroke-width="3"/><path d="M360 540 V600" stroke="#B9B2A8" stroke-width="3"/><path d="M480 540 V600" stroke="#B9B2A8" stroke-width="3"/><path d="M600 540 V600" stroke="#B9B2A8" stroke-width="3"/><path d="M720 540 V600" stroke="#B9B2A8" stroke-width="3"/><path d="M840 540 V600" stroke="#B9B2A8" stroke-width="3"/><path d="M960 540 V600" stroke="#B9B2A8" stroke-width="3"/><path d="M1080 540 V600" stroke="#B9B2A8" stroke-width="3"/><path d="M1200 540 V600" stroke="#B9B2A8" stroke-width="3"/><path d="M1320 540 V600" stroke="#B9B2A8" stroke-width="3"/><path d="M1440 540 V600" stroke="#B9B2A8" stroke-width="3"/><path d="M1560 540 V600" stroke="#B9B2A8" stroke-width="3"/><path d="M0 600 H1600" stroke="#B9B2A8" stroke-width="3"/><path d="M-60 600 V660" stroke="#B9B2A8" stroke-width="3"/><path d="M60 600 V660" stroke="#B9B2A8" stroke-width="3"/><path d="M180 600 V660" stroke="#B9B2A8" stroke-width="3"/><path d="M300 600 V660" stroke="#B9B2A8" stroke-width="3"/><path d="M420 600 V660" stroke="#B9B2A8" stroke-width="3"/><path d="M540 600 V660" stroke="#B9B2A8" stroke-width="3"/><path d="M660 600 V660" stroke="#B9B2A8" stroke-width="3"/><path d="M780 600 V660" stroke="#B9B2A8" stroke-width="3"/><path d="M900 600 V660" stroke="#B9B2A8" stroke-width="3"/><path d="M1020 600 V660" stroke="#B9B2A8" stroke-width="3"/><path d="M1140 600 V660" stroke="#B9B2A8" stroke-width="3"/><path d="M1260 600 V660" stroke="#B9B2A8" stroke-width="3"/><path d="M1380 600 V660" stroke="#B9B2A8" stroke-width="3"/><path d="M1500 600 V660" stroke="#B9B2A8" stroke-width="3"/><path d="M0 660 H1600" stroke="#B9B2A8" stroke-width="3"/><path d="M0 660 V720" stroke="#B9B2A8" stroke-width="3"/><path d="M120 660 V720" stroke="#B9B2A8" stroke-width="3"/><path d="M240 660 V720" stroke="#B9B2A8" stroke-width="3"/><path d="M360 660 V720" stroke="#B9B2A8" stroke-width="3"/><path d="M480 660 V720" stroke="#B9B2A8" stroke-width="3"/><path d="M600 660 V720" stroke="#B9B2A8" stroke-width="3"/><path d="M720 660 V720" stroke="#B9B2A8" stroke-width="3"/><path d="M840 660 V720" stroke="#B9B2A8" stroke-width="3"/><path d="M960 660 V720" stroke="#B9B2A8" stroke-width="3"/><path d="M1080 660 V720" stroke="#B9B2A8" stroke-width="3"/><path d="M1200 660 V720" stroke="#B9B2A8" stroke-width="3"/><path d="M1320 660 V720" stroke="#B9B2A8" stroke-width="3"/><path d="M1440 660 V720" stroke="#B9B2A8" stroke-width="3"/><path d="M1560 660 V720" stroke="#B9B2A8" stroke-width="3"/><path d="M0 720 H1600" stroke="#B9B2A8" stroke-width="3"/><path d="M-60 720 V780" stroke="#B9B2A8" stroke-width="3"/><path d="M60 720 V780" stroke="#B9B2A8" stroke-width="3"/><path d="M180 720 V780" stroke="#B9B2A8" stroke-width="3"/><path d="M300 720 V780" stroke="#B9B2A8" stroke-width="3"/><path d="M420 720 V780" stroke="#B9B2A8" stroke-width="3"/><path d="M540 720 V780" stroke="#B9B2A8" stroke-width="3"/><path d="M660 720 V780" stroke="#B9B2A8" stroke-width="3"/><path d="M780 720 V780" stroke="#B9B2A8" stroke-width="3"/><path d="M900 720 V780" stroke="#B9B2A8" stroke-width="3"/><path d="M1020 720 V780" stroke="#B9B2A8" stroke-width="3"/><path d="M1140 720 V780" stroke="#B9B2A8" stroke-width="3"/><path d="M1260 720 V780" stroke="#B9B2A8" stroke-width="3"/><path d="M1380 720 V780" stroke="#B9B2A8" stroke-width="3"/><path d="M1500 720 V780" stroke="#B9B2A8" stroke-width="3"/><path d="M0 780 H1600" stroke="#B9B2A8" stroke-width="3"/><path d="M0 780 V840" stroke="#B9B2A8" stroke-width="3"/><path d="M120 780 V840" stroke="#B9B2A8" stroke-width="3"/><path d="M240 780 V840" stroke="#B9B2A8" stroke-width="3"/><path d="M360 780 V840" stroke="#B9B2A8" stroke-width="3"/><path d="M480 780 V840" stroke="#B9B2A8" stroke-width="3"/><path d="M600 780 V840" stroke="#B9B2A8" stroke-width="3"/><path d="M720 780 V840" stroke="#B9B2A8" stroke-width="3"/><path d="M840 780 V840" stroke="#B9B2A8" stroke-width="3"/><path d="M960 780 V840" stroke="#B9B2A8" stroke-width="3"/><path d="M1080 780 V840" stroke="#B9B2A8" stroke-width="3"/><path d="M1200 780 V840" stroke="#B9B2A8" stroke-width="3"/><path d="M1320 780 V840" stroke="#B9B2A8" stroke-width="3"/><path d="M1440 780 V840" stroke="#B9B2A8" stroke-width="3"/><path d="M1560 780 V840" stroke="#B9B2A8" stroke-width="3"/><path d="M0 840 H1600" stroke="#B9B2A8" stroke-width="3"/><path d="M-60 840 V900" stroke="#B9B2A8" stroke-width="3"/><path d="M60 840 V900" stroke="#B9B2A8" stroke-width="3"/><path d="M180 840 V900" stroke="#B9B2A8" stroke-width="3"/><path d="M300 840 V900" stroke="#B9B2A8" stroke-width="3"/><path d="M420 840 V900" stroke="#B9B2A8" stroke-width="3"/><path d="M540 840 V900" stroke="#B9B2A8" stroke-width="3"/><path d="M660 840 V900" stroke="#B9B2A8" stroke-width="3"/><path d="M780 840 V900" stroke="#B9B2A8" stroke-width="3"/><path d="M900 840 V900" stroke="#B9B2A8" stroke-width="3"/><path d="M1020 840 V900" stroke="#B9B2A8" stroke-width="3"/><path d="M1140 840 V900" stroke="#B9B2A8" stroke-width="3"/><path d="M1260 840 V900" stroke="#B9B2A8" stroke-width="3"/><path d="M1380 840 V900" stroke="#B9B2A8" stroke-width="3"/><path d="M1500 840 V900" stroke="#B9B2A8" stroke-width="3"/><use href="#chel" x="30" y="110" width="600.0" height="780" style="--mid:#FF2A1A;--ink:#111111;--hi:#D9D3CA"/><use href="#acc-cap" x="30" y="110" width="600.0" height="780" style="--mid:#FF2A1A;--ink:#111111;--hi:#D9D3CA"/><rect x="140" y="820" width="7" height="60" rx="3.5" fill="#FF2A1A"/><rect x="230" y="840" width="7" height="50" rx="3.5" fill="#FF2A1A"/><rect x="390" y="800" width="7" height="90" rx="3.5" fill="#FF2A1A"/><rect x="520" y="830" width="7" height="60" rx="3.5" fill="#FF2A1A"/><text class="fit" data-max="840" x="700" y="210" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="160" fill="#111111">ЧЕЛОВЕК</text><text class="fit" data-max="840" x="700" y="380" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="160" fill="#111111">ЧЕЛОВЕКУ</text><text class="fit" data-max="830" x="712" y="712" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="270" fill="#111111">ХЕЛПЕР</text><text class="fit" data-max="830" x="700" y="700" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="270" fill="#D4FF3A">ХЕЛПЕР</text><text x="1230" y="820" text-anchor="middle" transform="rotate(-7 1230 800)" font-family="Caveat, 'Comic Sans MS', cursive" font-weight="700" font-size="104" fill="#FF2E88">человеки</text>
+      </svg>
+    </div>
+    <div class="apps" data-v="ч15"></div>
+  </section>
+  <section class="v" id="ч16" data-name="Человеки · бумажные человечки, кислотно">
+    <div class="vh">
+      <span class="vnum">Ч16</span><h2>Сколько надо, столько и будет</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю Ч16</button><button class="x" type="button" aria-label="Убрать Ч16 из сравнения">×</button></div>
+      <p class="concept">концепция: идея встречи «цветные бумажные человечки», но в языке клуба · подход: жёлтый фон, слово в чёрной плашке, гирлянда кислотных человечков с чёрной тенью</p>
+    </div>
+    <div class="poster">
+      <svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Плакат Человеки: гирлянда кислотных бумажных человечков, сколько надо, столько и будет">
+        <rect width="1600" height="900" fill="#FFE600"/><text x="1540" y="110" text-anchor="end" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="64" fill="#111111" letter-spacing="6">ЧЕЛОВЕКИ</text><rect class="box" data-for="b16" data-pad="28" x="52" y="115" width="1156" height="168" fill="#111111"/><text class="fit" data-max="1100" x="80" y="250" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="150" fill="#FFE600" id="b16">СКОЛЬКО НАДО,</text><text class="fit" data-max="1460" x="64" y="420" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="150" fill="#FF2A1A">СТОЛЬКО И БУДЕТ</text><g id="dolls16"></g>
+      </svg>
+    </div>
+    <div class="apps" data-v="ч16"></div>
+  </section>
+  <section class="v" id="ч17" data-name="Человеки · газета вести человеков">
+    <div class="vh">
+      <span class="vnum">Ч17</span><h2>Вести человеков</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю Ч17</button><button class="x" type="button" aria-label="Убрать Ч17 из сравнения">×</button></div>
+      <p class="concept">концепция: «вся власть хелперам», газета бригады · подход: первая полоса, растровый портрет точками, красный заголовок, жёлтый маркер</p>
+    </div>
+    <div class="poster">
+      <svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Плакат Человеки: газета Вести человеков, вся власть хелперам">
+        <rect width="1600" height="900" fill="#F4EFE6"/><defs><pattern id="dots17" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="4.6" fill="#111111"/></pattern></defs><text class="fit" data-max="1460" x="800" y="130" text-anchor="middle" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="120" fill="#111111">ВЕСТИ ЧЕЛОВЕКОВ</text><rect x="70" y="160" width="1460" height="6" fill="#111111"/><rect x="70" y="174" width="1460" height="2" fill="#111111"/><text x="800" y="214" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="28" fill="#111111" letter-spacing="3">№ 1 · ОКТЯБРЬ 2026 · ЦЕНА: ОДНА СМЕНА</text><rect x="70" y="236" width="1460" height="2" fill="#111111"/><text class="fit" data-max="1460" x="800" y="400" text-anchor="middle" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="176" fill="#FF2A1A">ВСЯ ВЛАСТЬ ХЕЛПЕРАМ!</text><use href="#chel" x="40" y="300" width="615.4" height="800" style="--mid:url(#dots17);--ink:#111111;--hi:#F4EFE6"/><use href="#acc-cap" x="40" y="300" width="615.4" height="800" style="--mid:url(#dots17);--ink:#111111;--hi:#F4EFE6"/><rect x="690" y="476" width="840" height="74" fill="#FFE600"/><text class="fit" data-max="808" x="706" y="532" font-family="'Golos Text', Arial, sans-serif" font-weight="700" font-size="44" fill="#111111">Кто таскает стулья, тот и правит банкетом</text><rect x="700" y="590" width="200" height="12" fill="#9C978F"/><rect x="700" y="624" width="256" height="12" fill="#9C978F"/><rect x="700" y="658" width="256" height="12" fill="#9C978F"/><rect x="700" y="692" width="256" height="12" fill="#9C978F"/><rect x="700" y="726" width="200" height="12" fill="#9C978F"/><rect x="700" y="760" width="256" height="12" fill="#9C978F"/><rect x="982" y="590" width="256" height="12" fill="#9C978F"/><rect x="982" y="624" width="256" height="12" fill="#9C978F"/><rect x="982" y="658" width="256" height="12" fill="#9C978F"/><rect x="982" y="692" width="200" height="12" fill="#9C978F"/><rect x="982" y="726" width="256" height="12" fill="#9C978F"/><rect x="982" y="760" width="256" height="12" fill="#9C978F"/><rect x="1264" y="590" width="256" height="12" fill="#9C978F"/><rect x="1264" y="624" width="256" height="12" fill="#9C978F"/><rect x="1264" y="658" width="200" height="12" fill="#9C978F"/><rect x="1264" y="692" width="256" height="12" fill="#9C978F"/><rect x="1264" y="726" width="256" height="12" fill="#9C978F"/><rect x="1264" y="760" width="256" height="12" fill="#9C978F"/><text x="700" y="840" font-family="'Golos Text', Arial, sans-serif" font-weight="600" font-size="40" fill="#111111">Подробности на смене.</text>
+      </svg>
+    </div>
+    <div class="apps" data-v="ч17"></div>
+  </section>
+  <div class="grp"><p class="grp-t">Руки-ноги</p><p class="grp-s">для сравнения</p></div>
+
+  <section class="v" id="р4" data-name="Руки-ноги · ярко">
+    <div class="vh">
+      <span class="vnum">Р4</span><h2>Взяли руки в ноги</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю Р4</button><button class="x" type="button" aria-label="Убрать Р4 из сравнения">×</button></div>
+      <p class="concept">концепция: «взяли руки в ноги и пошли» · подход: розовое поле, жёлтый круг, бегун с летящими перчатками и кроссовками, слово в чёрной плашке</p>
+    </div>
+    <div class="poster">
+      <svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Плакат Руки-ноги: взяли руки в ноги, бегун на жёлтом круге">
+        <rect width="1600" height="900" fill="#FF2E88"/><circle cx="1180" cy="470" r="340" fill="#FFE600"/><use href="#runner" x="790" y="180" width="780" height="578"/><text class="fit" data-max="760" x="72" y="300" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="170" fill="#111111">ВЗЯЛИ РУКИ</text><rect class="box" data-for="r4" data-pad="28" x="60" y="340" width="756" height="224" fill="#111111"/><text class="fit" data-max="700" x="88" y="520" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="200" fill="#FFE600" id="r4">В НОГИ</text><text class="fit" data-max="760" x="72" y="680" font-family="'Golos Text', Arial, sans-serif" font-weight="700" font-size="54" fill="#111111">И пошли на смену.</text><text class="fit" data-max="760" x="72" y="748" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="40" fill="#111111" letter-spacing="2">РУКИ-НОГИ · ПЕРСОНАЛ ДЛЯ ИВЕНТОВ</text>
+      </svg>
+    </div>
+    <div class="apps" data-v="р4"></div>
+  </section>
+  <div class="grp"><p class="grp-t">Анастасии Бариновой</p><p class="grp-s">серьёзное имя</p></div>
+
+  <section class="v" id="а3" data-name="Агентство персонала Анастасии Бариновой · ярко">
+    <div class="vh">
+      <span class="vnum">А3</span><h2>Агентство Анастасии Бариновой</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю А3</button><button class="x" type="button" aria-label="Убрать А3 из сравнения">×</button></div>
+      <p class="concept">концепция: личное имя в языке клуба · подход: лайм, две чёрные плашки с именем, трафаретная монограмма «АБ» со звездой на красном круге</p>
+    </div>
+    <div class="poster">
+      <svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Плакат Агентство персонала Анастасии Бариновой: лайм, чёрные плашки, монограмма АБ">
+        <rect width="1600" height="900" fill="#D4FF3A"/><circle cx="1240" cy="450" r="320" fill="#FF2A1A"/><text class="fit" data-max="520" x="1240" y="600" text-anchor="middle" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="420" fill="#D4FF3A">АБ</text><polygon points="1240,170 1262,226 1322,228 1276,264 1292,322 1240,288 1188,322 1204,264 1158,228 1218,226" fill="#111111"/><text class="fit" data-max="780" x="72" y="230" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="96" fill="#111111">АГЕНТСТВО ПЕРСОНАЛА</text><rect class="box" data-for="a3a" data-pad="28" x="60" y="285" width="756" height="168" fill="#111111"/><text class="fit" data-max="700" x="88" y="420" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="150" fill="#D4FF3A" id="a3a">АНАСТАСИИ</text><rect class="box" data-for="a3b" data-pad="28" x="60" y="465" width="756" height="168" fill="#111111"/><text class="fit" data-max="700" x="88" y="600" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="150" fill="#D4FF3A" id="a3b">БАРИНОВОЙ</text><text class="fit" data-max="760" x="72" y="740" font-family="'Golos Text', Arial, sans-serif" font-weight="700" font-size="52" fill="#111111">Персонал на ивенты.</text><text class="fit" data-max="760" x="72" y="806" font-family="'Golos Text', Arial, sans-serif" font-weight="700" font-size="52" fill="#111111">Обучен и с рейтингом.</text>
+      </svg>
+    </div>
+    <div class="apps" data-v="а3"></div>
+  </section>
+  <footer class="foot">Эскизы, 7 октября 2026. Прошлый спокойный раунд: <a href="v1/">12 вариантов, раунд 1</a>. Рейтинг, смены и номера в макетах пример.</footer>
+</main>
+
+<div class="toast" id="toast" hidden></div>
+
+
+<script>
+(function(){
+  // ---------- применения: значок рейтинга, мерч, экран смены (палитры клуба ЧЕ) ----------
+  var OS = "Oswald, 'Arial Narrow', sans-serif", GOLOS = "'Golos Text', Arial, sans-serif", MONO = "'IBM Plex Mono', monospace";
+  var LIME='#D4FF3A', PINK='#FF4FA3', HOT='#FF2E88', YEL='#FFE600', RED='#FF2A1A', INK='#111111', CREAM='#F4EFE6';
+  function W(bg,fg,ac,acink,r,border){return {bg:bg,fg:fg,ac:ac,acink:acink,r:r,border:border,font:OS,fw:700};}
+  var V = {
+    'ч8': {club:'ЧЕЛОВЕКИ', init:'Ч', disp:OS, dw:700, rt:'НЕ ПЕРСОНАЛ · ЧЕЛОВЕКИ · РЕЙТИНГ 4,9 ·', ring:INK, core:HOT, initC:LIME, ringText:LIME,
+           tee:LIME, teeInk:INK, q:['НЕ ПЕРСОНАЛ.','ЧЕЛОВЕКИ'], qs:30, au:'человеки', w:W(LIME,INK,HOT,INK,'0px','4px solid #111')},
+    'ч9': {club:'ЧЕЛОВЕКИ', init:'Ч', disp:OS, dw:700, rt:'БРИГАДИР ВСЁ СКАЗАЛ · ЖМИ ГАЛОЧКУ ·', ring:YEL, core:INK, initC:YEL, ringText:INK,
+           tee:INK, teeInk:YEL, q:['ЖМИ','ГАЛОЧКУ'], qs:44, au:'бригадир всё сказал', w:W(INK,CREAM,YEL,INK,'14px','0')},
+    'ч10':{club:'ЧЕЛОВЕКИ', init:'Ч', disp:OS, dw:700, rt:'ОФИЦИАНТ · АНИМАТОР · ХЕЛПЕР · ПРОМО ·', ring:RED, core:YEL, initC:RED, ringText:YEL,
+           tee:YEL, teeInk:RED, q:['ЧЕЛОВЕКИ','НА ЛЮБОЙ','ИВЕНТ'], qs:34, au:'персонал для ивентов', w:W(YEL,INK,RED,'#FFFFFF','8px','4px solid #111')},
+    'ч11':{club:'человеки', init:'Ч', disp:OS, dw:700, rt:'ЛАЙК · РЕПОСТ · СМЕНА · ЛАЙК · РЕПОСТ ·', ring:HOT, core:YEL, initC:RED, ringText:'#FFFFFF',
+           tee:HOT, teeInk:YEL, q:['ЛАЙК.','РЕПОСТ.','СМЕНА.'], qs:34, au:'человеки', w:W(HOT,'#FFFFFF',YEL,INK,'28px','0')},
+    'ч12':{club:'БАНК ЧЕЛОВЕКОВ', init:'1', disp:OS, dw:700, rt:'БАНК ЧЕЛОВЕКОВ · 1 СМЕНА · ЧЛ 0000001 ·', ring:YEL, core:RED, initC:YEL, ringText:RED,
+           tee:RED, teeInk:YEL, q:['1 СМЕНА'], qs:44, au:'курс стабильный', w:W(RED,'#FFFFFF',YEL,INK,'6px','4px solid #FFE600')},
+    'ч13':{club:'ЧЕЛОВЕКИ', init:'Ч', disp:OS, dw:700, rt:'ЧЕЛОВЕКИ ВСЕХ ИВЕНТОВ, СОЕДИНЯЙТЕСЬ! ·', ring:INK, core:RED, initC:YEL, ringText:YEL,
+           tee:RED, teeInk:YEL, q:['СОЕДИНЯЙТЕСЬ!'], qs:34, au:'человеки всех ивентов', w:W(RED,'#FFFFFF',YEL,INK,'0px','4px solid #111')},
+    'ч14':{club:'ЧЕЛОВЕКИ', init:'Ч', disp:OS, dw:700, rt:'ШУТКА · ПРОСТО МИНУС К РЕЙТИНГУ ·', ring:INK, core:PINK, initC:INK, ringText:PINK,
+           tee:PINK, teeInk:INK, q:['Я НЕ ОПАЗДЫВАЮ.','Я ЧЕЛОВЕК.'], qs:28, au:'человеки', w:W(PINK,INK,INK,PINK,'12px','4px solid #111')},
+    'ч15':{club:'ЧЕЛОВЕКИ', init:'Ч', disp:OS, dw:700, rt:'ЧЕЛОВЕК ЧЕЛОВЕКУ ХЕЛПЕР ·', ring:RED, core:'#D9D3CA', initC:INK, ringText:LIME,
+           tee:'#D9D3CA', teeInk:INK, q:['ЧЕЛОВЕК','ЧЕЛОВЕКУ','ХЕЛПЕР'], qs:34, au:'человеки', w:W('#D9D3CA',INK,RED,'#FFFFFF','4px','4px solid #111')},
+    'ч16':{club:'ЧЕЛОВЕКИ', init:'Ч', disp:OS, dw:700, rt:'СКОЛЬКО НАДО, СТОЛЬКО И БУДЕТ ·', ring:INK, core:YEL, initC:HOT, ringText:YEL,
+           tee:YEL, teeInk:INK, q:['СКОЛЬКО НАДО,','СТОЛЬКО','И БУДЕТ'], qs:30, au:'человеки', w:W(YEL,INK,HOT,'#FFFFFF','22px','4px solid #111')},
+    'ч17':{club:'ВЕСТИ ЧЕЛОВЕКОВ', init:'В', disp:OS, dw:700, rt:'ВСЯ ВЛАСТЬ ХЕЛПЕРАМ · № 1 ·', ring:RED, core:CREAM, initC:RED, ringText:CREAM,
+           tee:CREAM, teeInk:RED, q:['ВСЯ ВЛАСТЬ','ХЕЛПЕРАМ!'], qs:34, au:'вести человеков', w:W(CREAM,INK,RED,'#FFFFFF','0px','2px solid #111')},
+    'р4': {club:'РУКИ-НОГИ', init:'РН', disp:OS, dw:700, rt:'ВЗЯЛИ РУКИ В НОГИ И ПОШЛИ ·', ring:INK, core:YEL, initC:HOT, ringText:YEL,
+           tee:HOT, teeInk:YEL, q:['ВЗЯЛИ РУКИ','В НОГИ'], qs:34, au:'руки-ноги', w:W(HOT,INK,YEL,INK,'24px','0')},
+    'а3': {club:'АГЕНТСТВО БАРИНОВОЙ', init:'АБ', disp:OS, dw:700, rt:'АГЕНТСТВО ПЕРСОНАЛА АНАСТАСИИ БАРИНОВОЙ ·', ring:RED, core:LIME, initC:INK, ringText:LIME,
+           tee:LIME, teeInk:INK, q:['АБ'], qs:80, au:'агентство персонала', w:W(LIME,INK,RED,'#FFFFFF','0px','4px solid #111')}
+  };
+  // смена: роль, набрано, процент, подсказка
+  var ROLES=[['Официанты','8/10',80,'дресс-код: чёрный верх'],['Аниматоры','2/3',67,'детская программа'],['Гардероб','4/4',100,'набор закрыт']];
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+  function badge(id,c){
+    var fs = c.init.length>1 ? 92 : 120;
+    return '<svg data-art="ачивка" viewBox="0 0 300 300" role="img" aria-label="Значок-ачивка">'+
+      '<defs><path id="ring-'+id+'" d="M150,150 m-108,0 a108,108 0 1,1 216,0 a108,108 0 1,1 -216,0"/></defs>'+
+      '<circle cx="150" cy="150" r="140" fill="'+c.ring+'"/>'+
+      '<circle cx="150" cy="150" r="88" fill="'+c.core+'"/>'+
+      '<text class="ring" font-family="'+esc(c.disp)+'" font-weight="'+c.dw+'" font-size="21" fill="'+c.ringText+'" letter-spacing="1"><textPath href="#ring-'+id+'" textLength="670" lengthAdjust="spacing">'+esc(c.rt)+'</textPath></text>'+
+      '<text class="fit" data-max="150" x="150" y="150" text-anchor="middle" dominant-baseline="central" font-family="'+esc(c.disp)+'" font-weight="'+c.dw+'" font-size="'+fs+'" fill="'+c.initC+'">'+esc(c.init)+'</text>'+
+    '</svg>';
+  }
+  function tee(c){
+    var lh=c.qs*1.12, n=c.q.length, y0=192-(n-1)*lh/2+c.qs*0.3, t='';
+    for(var i=0;i<n;i++){t+='<text class="fitq" data-max="116" x="150" y="'+(y0+i*lh)+'" text-anchor="middle" font-family="'+esc(c.disp)+'" font-weight="'+c.dw+'" font-size="'+c.qs+'" fill="'+c.teeInk+'">'+esc(c.q[i])+'</text>';}
+    return '<svg data-art="мерч" viewBox="0 0 300 300" role="img" aria-label="Футболка персонала с принтом">'+
+      '<path d="M98 52 L60 70 L24 128 L64 150 L84 122 L84 282 L216 282 L216 122 L236 150 L276 128 L240 70 L202 52 Q150 88 98 52 Z" fill="'+c.tee+'" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2" stroke-linejoin="round"/>'+
+      '<path d="M98 52 Q150 88 202 52" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="6"/>'+ t +
+      '<text class="fit" data-max="124" x="150" y="266" text-anchor="middle" font-family="\'Golos Text\', Arial, sans-serif" font-weight="600" font-size="20" fill="'+c.teeInk+'">'+esc(c.au)+'</text>'+
+    '</svg>';
+  }
+  // принт футболки: все строки одним кеглем, по самой длинной
+  function teeFit(){document.querySelectorAll('svg[data-art="мерч"]').forEach(function(sv){var ts=[].slice.call(sv.querySelectorAll('text.fitq'));if(!ts.length)return;var k=1;
+    ts.forEach(function(t){var fs=+(t.dataset.fs||t.getAttribute('font-size'));t.dataset.fs=fs;t.setAttribute('font-size',fs);var w=t.getComputedTextLength();if(w>116)k=Math.min(k,116/w);});
+    ts.forEach(function(t){t.setAttribute('font-size',(+t.dataset.fs*k).toFixed(1));});});}
+  // слово в плашке, как в П1 клуба: плашка по ширине слова
+  function boxFit(){document.querySelectorAll('rect.box').forEach(function(r){var t=document.getElementById(r.dataset.for);if(!t)return;var pad=+r.dataset.pad||28;
+    r.setAttribute('width',(t.getComputedTextLength()+2*pad).toFixed(0));});}
+  function widget(c){
+    var w=c.w, li='';
+    ROLES.forEach(function(r){li+='<li><b>'+r[0]+'</b><em>'+r[1]+'</em><small>'+r[3]+'</small><i style="--p:'+r[2]+'%"></i></li>';});
+    return '<div class="w" data-art="экран бренда" style="--wbg:'+w.bg+';--wfg:'+w.fg+';--wac:'+w.ac+';--wacink:'+w.acink+';--wr:'+w.r+';--wborder:'+w.border+';--wfont:'+w.font+';--wfw:'+w.fw+'">'+
+      '<div class="w-top"><span class="w-club">'+esc(c.club)+'</span><span class="w-tag">новая смена</span></div>'+
+      '<p class="w-q">Корпоратив · 20 декабря · сбор в 17:00</p><ul>'+li+'</ul>'+
+      '<div class="w-foot"><span class="w-btn">Беру смену</span><small>подтверждение галочкой · пример</small></div></div>';
+  }
+  document.querySelectorAll('.apps').forEach(function(box){
+    var id=box.dataset.v, c=V[id];
+    box.innerHTML='<div class="app"><span>Значок рейтинга</span>'+badge(id,c)+'</div>'+
+                  '<div class="app"><span>Мерч</span>'+tee(c)+'</div>'+
+                  '<div class="app wide"><span>Экран смены</span>'+widget(c)+'</div>';
+  });
+
+  function el(id,html){var g=document.getElementById(id);if(g)g.innerHTML=html}
+
+  // ---------- Ч16: гирлянда кислотных бумажных человечков ----------
+  (function(){
+    var cols=['#FF2E88','#00C2FF','#D4FF3A','#FF2A1A','#7B3CFF','#FF6B00','#FFFFFF'],
+        roles=['аниматор','промо','официант','хелпер','гардероб','грузчик','декоратор'],sh='',o='',t='';
+    for(var i=0;i<7;i++){var x=110+i*196;
+      sh+='<use href="#doll" x="'+(x+12)+'" y="492" width="200" height="300" fill="#111111"/>';
+      o+='<use href="#doll" x="'+x+'" y="480" width="200" height="300" fill="'+cols[i]+'"/>';
+      t+='<text x="'+(x+100)+'" y="846" text-anchor="middle" font-family="Oswald, \'Arial Narrow\', sans-serif" font-weight="700" font-size="34" fill="#111111">'+roles[i].toUpperCase()+'</text>';}
+    el('dolls16',sh+o+t);
+  })();
+
+  // ---------- навигация, скрытие, утверждение ----------
+  var secs=[].slice.call(document.querySelectorAll('section.v'));
+  var nav=document.getElementById('nav'), restore=document.getElementById('restore'), KEY='cheloveki-yarko-hidden';
+  function load(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return []}}
+  function save(a){try{localStorage.setItem(KEY,JSON.stringify(a))}catch(e){}}
+  secs.forEach(function(s){
+    var a=document.createElement('a');a.href='#'+s.id;a.textContent=s.querySelector('.vnum').textContent+' '+s.querySelector('h2').textContent;a.dataset.id=s.id;nav.appendChild(a);
+  });
+  function render(){
+    var hid=load();restore.innerHTML='';
+    secs.forEach(function(s){
+      var h=hid.indexOf(s.id)>-1;s.hidden=h;nav.querySelector('[data-id="'+s.id+'"]').hidden=h;
+      if(h){var b=document.createElement('button');b.type='button';b.textContent='Вернуть '+s.id.toUpperCase();b.onclick=function(){save(load().filter(function(x){return x!==s.id}));render();};restore.appendChild(b);}
+    });
+  }
+  secs.forEach(function(s){
+    s.querySelector('.x').addEventListener('click',function(){var h=load();if(h.indexOf(s.id)<0)h.push(s.id);save(h);render();});
+    s.querySelector('.ok').addEventListener('click',function(){
+      var phrase='Утверждаю '+s.id.toUpperCase()+': '+s.dataset.name;
+      var t=document.getElementById('toast');
+      function show(ok){t.innerHTML=ok?'Скопировано, вставь в чат: <b>'+esc(phrase)+'</b>':'Скопируй и вставь в чат:<input id="phrase" readonly value="'+esc(phrase)+'">';t.hidden=false;var i=document.getElementById('phrase');if(i){i.focus();i.select();}clearTimeout(t._h);t._h=setTimeout(function(){t.hidden=true},ok?3500:9000);}
+      try{navigator.clipboard.writeText(phrase).then(function(){show(true)},function(){show(false)});}catch(e){show(false)}
+    });
+  });
+  render();
+  // текст не вылезает: ужимаю по реальной ширине после загрузки шрифтов
+  // надпись по кольцу ачивки: если в естественную длину не влезает в 650 из 670, уменьшаю кегль, а не сжимаю буквы друг в друга
+  function ringFit(){document.querySelectorAll('text.ring').forEach(function(t){var p=t.querySelector('textPath');t.setAttribute('font-size',21);p.removeAttribute('textLength');var w=t.getComputedTextLength();if(w>650)t.setAttribute('font-size',(21*650/w).toFixed(1));p.setAttribute('textLength',670);});}
+  function fit(){ringFit();document.querySelectorAll('text.fit').forEach(function(t){var max=+t.dataset.max,fs=+(t.dataset.fs||t.getAttribute('font-size')||parseFloat(getComputedStyle(t).fontSize));t.dataset.fs=fs;t.setAttribute('font-size',fs);var w=t.getComputedTextLength();if(w>max)t.setAttribute('font-size',(fs*max/w).toFixed(1));});}
+  fit();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){nav.querySelectorAll('a').forEach(function(a){a.classList.toggle('on',a.dataset.id===e.target.id)});}})},{rootMargin:'-40% 0px -55% 0px'});
+    secs.forEach(function(s){io.observe(s)});
+  }
+  function after(){teeFit();boxFit();}
+  after();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(after);
+})();
+</script>
+
+</body>
+</html>
