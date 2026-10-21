@@ -25,7 +25,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-siz
 .wrap{max-width:var(--wrap);margin:0 auto}
 h1,h2,h3{font-family:var(--f-head);font-weight:800;line-height:1.08;margin:0;text-wrap:balance}
 p{margin:0}
-.hero{padding-block:24px 0;max-width:1180px;margin:0 auto}
+.hero{padding-block:24px 0}
 .hero-svg{width:100%;height:auto;display:block;border-radius:var(--r)}
 .dots{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding-block:14px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper)}
 .dots a{height:40px;padding:0 16px;display:inline-flex;align-items:center;border-radius:999px;background:var(--white);color:var(--ink);text-decoration:none;font-weight:700;font-size:var(--fs-s);border:2px solid var(--malina)}
@@ -70,11 +70,11 @@ td small{display:block;color:var(--muted);font-size:var(--fs-s)}
 .mk{flex:1 1 260px}
 .mk input{width:100%;accent-color:var(--fux)}
 .res{background:var(--malina);color:var(--white);display:flex;flex-direction:column}
-.res .big{font-family:var(--f-head);font-size:var(--fs-xxl);line-height:1;margin:6px 0 4px}
+.res .big{font-family:var(--f-head);font-size:var(--fs-xxl);line-height:1;margin:6px 0 18px}
 .res .lb{font-family:var(--f-num);font-size:var(--fs-s);letter-spacing:.08em;text-transform:uppercase;opacity:.85}
 .res .line{display:flex;justify-content:space-between;gap:16px;padding-block:14px;border-top:1px solid rgba(255,255,255,.28);font-size:var(--fs-m)}
 .res .line b{font-family:var(--f-num)}
-.res .profit{background:var(--fux);border-radius:16px;padding:24px;margin-block:18px 6px}
+.res .profit{background:var(--fux);border-radius:16px;padding:24px;margin-top:auto}
 .brk-t{margin-top:22px}
 .brk{display:grid;gap:2px;margin-top:8px}
 .brk div{display:flex;justify-content:space-between;gap:12px;align-items:center;padding-block:8px;border-bottom:1px solid rgba(255,255,255,.2)}
@@ -84,7 +84,7 @@ tr.later td{color:var(--muted)}
 tr.later td b{color:var(--muted)}
 td.num small{display:block;font-weight:500}
 .res .profit .big{font-size:var(--fs-xxl)}
-.res .note{margin-top:auto;padding-top:16px;font-size:var(--fs-s);opacity:.9}
+.res .note{margin-top:16px;font-size:var(--fs-s);opacity:.9}
 .month{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:32px}
 .month .card .n{font-family:var(--f-head);font-size:var(--fs-xl);color:var(--malina);margin:6px 0}
 .foot{padding-block:96px 48px;color:var(--muted);font-size:var(--fs-s)}
@@ -148,11 +148,11 @@ td.num small{display:block;font-weight:500}
       <div class="panel res" aria-live="polite">
         <p class="lb">Клиент платит</p>
         <p class="big" id="sale">0 ₽</p>
-        <div class="profit"><p class="lb">Наш доход</p><p class="big" id="profit">0 ₽</p><p id="margin">маржа 0% от чека</p></div>
         <div class="line"><span>Платим людям</span><b id="cost">0 ₽</b></div>
         <div class="line"><span>Человек на смене</span><b id="ppl">0</b></div>
         <p class="lb brk-t">Из чего складывается</p>
         <div class="brk" id="brk"></div>
+        <div class="profit"><p class="lb">Наш доход</p><p class="big" id="profit">0 ₽</p><p id="margin">маржа 0% от чека</p></div>
         <p class="note">Без налогов, такси после 00:30 и формы. Ведущий считается за выход.</p>
       </div>
     </div>
