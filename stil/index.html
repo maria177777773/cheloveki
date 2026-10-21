@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Человеки · стиль">
+<meta property="og:description" content="Человеки: 8 визуальных листов стиля, фуксия и ч/б люди">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0;font:14px system-ui;background:#f7f7f5}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Человеки · стиль</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@500&family=Rubik+Mono+One&family=Shantell+Sans:wght@800&family=Unbounded:wght@800&display=swap">
+<style>
+/* Тихая серая витрина вокруг плакатов. Каждый вариант: плакат 16:9 + ачивка, мерч, экран голосования. */
+:root{
+  --paper:#F1F2F4;      /* фон витрины, холодный серый */
+  --card:#FFFFFF;
+  --ink:#15161A;
+  --muted:#5B5F6B;
+  --line:#D9DBE1;
+  --chip:#E6E8EC;
+  --go:#15161A;         /* кнопка «Утверждаю» */
+  --go-ink:#FFFFFF;
+  --f-body:'Golos Text', 'Helvetica Neue', Arial, sans-serif;
+  --f-mono:'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  --fs-s:14px; --fs-m:17px; --fs-l:20px; --fs-xl:28px; --fs-xxl:44px;
+  --btn-h:44px;
+  --wrap:1320px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111216; --card:#1A1B21; --ink:#ECEDF1; --muted:#A3A7B3; --line:#2C2E36; --chip:#24262D;
+    --go:#ECEDF1; --go-ink:#111216; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111216; --card:#1A1B21; --ink:#ECEDF1; --muted:#A3A7B3; --line:#2C2E36; --chip:#24262D;
+  --go:#ECEDF1; --go-ink:#111216; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--fs-m);line-height:1.5;padding:0 20px}
+.wrap{max-width:var(--wrap);margin:0 auto}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.1}
+p{margin:0}
+
+/* ---------- topbar ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line);margin:0 -20px;padding:10px 20px}
+.top .wrap{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.top b{font-weight:700;font-size:var(--fs-m);margin-right:6px}
+.nav{display:flex;gap:6px;flex-wrap:wrap}
+.nav a{display:inline-flex;align-items:center;height:36px;padding:0 12px;border-radius:999px;background:var(--chip);color:var(--ink);text-decoration:none;font-size:var(--fs-s);font-weight:500;white-space:nowrap}
+.nav a.on{background:var(--ink);color:var(--paper)}
+.nav a[hidden]{display:none}
+.restore{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.restore button{height:36px;padding:0 12px;border-radius:999px;border:1px dashed var(--muted);background:transparent;color:var(--muted);font:500 var(--fs-s) var(--f-body);cursor:pointer}
+
+/* ---------- intro ---------- */
+.intro{padding-block:48px 24px;display:grid;gap:28px}
+.intro h1{font-size:var(--fs-xxl);font-weight:900;letter-spacing:-.02em}
+.lead{font-size:var(--fs-l);max-width:100ch;color:var(--muted)}
+.lead b{color:var(--ink)}
+
+/* ---------- variant ---------- */
+.v{padding-block:44px;border-top:1px solid var(--line);display:grid;gap:18px;scroll-margin-top:72px}
+.v[hidden]{display:none}
+.vh{display:flex;gap:14px 18px;align-items:center;flex-wrap:wrap}
+.vnum{font:500 var(--fs-m) var(--f-mono);background:var(--chip);border-radius:8px;padding:4px 10px}
+.vh h2{font-size:var(--fs-xl);font-weight:900}
+.vh .concept{flex-basis:100%;order:5;color:var(--muted);font-size:var(--fs-m)}
+.acts{margin-left:auto;display:flex;gap:8px}
+.acts button{height:var(--btn-h);border-radius:10px;font:700 var(--fs-m) var(--f-body);cursor:pointer;padding:0 18px}
+.acts .ok{background:var(--go);color:var(--go-ink);border:0}
+.acts .x{width:var(--btn-h);padding:0;background:transparent;border:1px solid var(--line);color:var(--ink);font-size:var(--fs-l);line-height:1}
+.acts button:focus-visible,.nav a:focus-visible,.restore button:focus-visible{outline:3px solid #3B6CFF;outline-offset:2px}
+
+.poster{border-radius:6px;overflow:hidden;line-height:0;box-shadow:0 1px 0 var(--line)}
+.poster svg{width:100%;height:auto;display:block}
+
+.apps{display:grid;grid-template-columns:1fr 1fr 2fr;gap:16px}
+.app{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;grid-template-rows:auto 1fr;grid-template-columns:minmax(0,1fr);gap:8px;min-width:0}
+.app>span{font:500 14px var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.app svg{width:100%;height:auto;display:block;aspect-ratio:1/1;max-height:300px;margin:auto}
+
+/* виджет голосования: стиль задают переменные эскиза */
+.w{background:var(--wbg);color:var(--wfg);border:var(--wborder);border-radius:var(--wr);box-shadow:var(--wshadow,none);padding:18px 20px;display:grid;gap:12px;align-content:start;font-family:var(--f-body)}
+.w-top{display:flex;justify-content:space-between;align-items:center;gap:6px 10px;flex-wrap:wrap}
+.w-club{font-family:var(--wfont);font-size:20px;line-height:1.1;font-weight:var(--wfw,700)}
+.w-tag{font:500 14px var(--f-mono);background:var(--wac);color:var(--wacink);padding:4px 8px;border-radius:calc(var(--wr) / 2);white-space:nowrap}
+.w-q{font-size:17px;font-weight:700;line-height:1.25}
+.w ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.w li{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center}
+.w li b{font-weight:700;font-size:17px;line-height:1.25}
+.w li small{grid-column:1;font-size:14px;opacity:.75}
+.w li em{grid-row:1/3;grid-column:2;font:500 17px var(--f-mono);font-style:normal}
+.w li i{grid-column:1/-1;height:8px;border-radius:calc(var(--wr) / 3);background:color-mix(in srgb,var(--wfg) 14%,transparent);position:relative;overflow:hidden}
+.w li i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--p);background:var(--wac)}
+.w-foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.w-btn{display:inline-flex;align-items:center;height:40px;padding:0 16px;background:var(--wfg);color:var(--wbg);border-radius:var(--wr);font-weight:700;font-size:17px}
+.w-foot small{font-size:14px;opacity:.75}
+
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:14px 18px;border-radius:12px;font-size:var(--fs-m);max-width:min(560px,calc(100vw - 32px));z-index:30;display:grid;gap:6px}
+.toast input{font:500 var(--fs-m) var(--f-body);padding:8px 10px;border-radius:8px;border:0;width:100%}
+.foot{padding-block:40px 60px;color:var(--muted);font-size:var(--fs-s);border-top:1px solid var(--line)}
+
+@media (max-width:1000px){
+  .apps{grid-template-columns:1fr 1fr}
+  .apps .app.wide{grid-column:1/-1}
+    }
+@media (max-width:560px){
+  :root{--fs-xxl:28px}
+  body{padding:0 16px}
+  .top{margin:0 -16px;padding:8px 16px}
+  .app svg{max-width:300px}
+  /* номера вариантов одной строкой с прокруткой: липкая шапка не съедает четверть экрана */
+  .nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px;width:calc(100% + 32px)}
+  .nav::-webkit-scrollbar{display:none}
+  .acts{margin-left:0;width:100%}
+  .acts .ok{flex:1}
+}
+@media (prefers-reduced-motion:no-preference){
+  .nav a,.acts button{transition:background .15s,color .15s}
+}
+
+.app.wide svg{aspect-ratio:2/1;max-height:none}
+</style>
+
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <b>Человеки · стиль</b>
+    <nav class="nav" id="nav"></nav>
+    <div class="restore" id="restore"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <h1>Человеки: 8 визуальных листов</h1>
+    <p class="lead">Основа стиля: <b>яркая фуксия</b> (как в Тендерной T14) и <b>ч/б живые люди</b> с наших ивентов, вырезанные как из журнала. Роли на груди: аниматор, промо, официант, хелпер. На каждом листе плакат, пропуск, футболка и обложка соцсети.</p>
+  </section>
+  <section class="v" id="с1" data-name="Журнальная вырезка">
+    <div class="vh">
+      <span class="vnum">С1</span><h2>Журнальная вырезка</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю С1</button><button class="x" type="button" aria-label="Убрать С1 из сравнения">×</button></div>
+      <p class="concept">концепция: люди вырваны из журнала и приклеены скотчем на фуксию · подход: огромное белое слово позади, трое по пояс, роли наклейками на груди</p>
+    </div>
+    <div class="poster"><svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Журнальная вырезка"><defs>
+  <filter id="fuxSil" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.18  0 0 0 0 0.576  0 0 0 1 0"/></filter>
+  <filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.933 0 0 0 0.067  0.113 0 0 0 0.067  0.51 0 0 0 0.067  0 0 0 1 0"/></filter>
+</defs><rect width="1600" height="900" fill="#FF2E93"/><text class="fit" data-max="1500" x="800" y="330" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="300" fill="#FFFFFF">человеки</text><g transform="rotate(-4 360 600)"><image href="img/l2.webp" x="137" y="300" width="446" height="600"/><g transform="rotate(-6 302 791)"><rect x="116" y="743" width="372" height="73" fill="#FF2E93"/><text x="302" y="798" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="60" fill="#FFFFFF">аниматор</text></g></g><g transform="rotate(2 800 580)"><image href="img/l5.webp" x="540" y="260" width="519" height="640"/><g transform="rotate(-6 820 729)"><rect x="655" y="686" width="331" height="65" fill="#FF2E93"/><text x="820" y="735" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="54" fill="#FFFFFF">официант</text></g></g><g transform="rotate(4 1240 600)"><image href="img/l11.webp" x="993" y="300" width="494" height="600"/><g transform="rotate(-6 1244 641)"><rect x="1148" y="609" width="192" height="48" fill="#FF2E93"/><text x="1244" y="646" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="40" fill="#FFFFFF">хелпер</text></g></g><rect x="215.0" y="278" width="150" height="44" fill="#FFF6B8" opacity=".82" transform="rotate(-20 290 300)"/><rect x="795.0" y="240" width="150" height="44" fill="#FFF6B8" opacity=".82" transform="rotate(14 870 262)"/><rect x="1225.0" y="278" width="150" height="44" fill="#FFF6B8" opacity=".82" transform="rotate(-12 1300 300)"/><text x="60" y="80" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="28" fill="#111111" letter-spacing="3">HR-АГЕНТСТВО АНАСТАСИИ БАРИНОВОЙ</text><text x="1540" y="80" text-anchor="end" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="28" fill="#111111" letter-spacing="3">ПЕРСОНАЛ ДЛЯ ИВЕНТОВ</text></svg></div>
+    <div class="apps">
+      <div class="app"><span>Пропуск</span><svg data-art="пропуск" viewBox="0 0 300 300" role="img" aria-label="Пропуск сотрудника на ивент"><path d="M120 0 L138 40 M180 0 L162 40" stroke="#FF2E93" stroke-width="16"/><rect x="138" y="30" width="24" height="22" rx="4" fill="#9A9A9A"/><rect x="62" y="48" width="176" height="244" rx="16" fill="#FFFFFF" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2"/><rect x="62" y="48" width="176" height="46" rx="16" fill="#FF2E93"/><rect x="62" y="76" width="176" height="18" fill="#FF2E93"/><text class="fit" data-max="150" x="150" y="80" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="20" fill="#FFFFFF">человеки</text><svg x="80" y="100" width="140" height="120" viewBox="0 0 621 836" preserveAspectRatio="xMidYMid meet"><image href="img/l2.webp" width="621" height="836"/></svg><text class="fit" data-max="160" x="150" y="246" text-anchor="middle" font-family="'Golos Text', Arial, sans-serif" font-weight="800" font-size="22" fill="#111111">Артём</text><text class="fit" data-max="160" x="150" y="272" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="18" fill="#111111">аниматор · 4,9</text></svg></div>
+      <div class="app"><span>Футболка</span><svg data-art="мерч" viewBox="0 0 300 300" role="img" aria-label="Футболка персонала"><path d="M98 52 L60 70 L24 128 L64 150 L84 122 L84 282 L216 282 L216 122 L236 150 L276 128 L240 70 L202 52 Q150 88 98 52 Z" fill="#FF2E93" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2" stroke-linejoin="round"/><text class="fit" data-max="116" x="150" y="170" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="26" fill="#FFFFFF">человеки</text><text class="fit" data-max="116" x="150" y="204" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="18" fill="#FFFFFF">аниматор</text></svg></div>
+      <div class="app wide"><span>Обложка соцсети</span><svg data-art="обложка" viewBox="0 0 600 300" role="img" aria-label="Обложка группы в соцсети"><defs>
+  <filter id="fuxSil" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.18  0 0 0 0 0.576  0 0 0 1 0"/></filter>
+  <filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.933 0 0 0 0.067  0.113 0 0 0 0.067  0.51 0 0 0 0.067  0 0 0 1 0"/></filter>
+</defs><rect width="600" height="300" fill="#FF2E93"/><text class="fit" data-max="540" x="300" y="130" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="76" fill="#FFFFFF">человеки</text><g transform="rotate(-6 95 235)"><image href="img/l9.webp" x="16" y="170" width="158" height="130"/></g><g transform="rotate(5 530 225)"><image href="img/l1.webp" x="475" y="150" width="110" height="150"/></g><text class="fit" data-max="300" x="300" y="190" text-anchor="middle" font-family="'Golos Text', Arial, sans-serif" font-weight="700" font-size="24" fill="#111111">сколько надо, столько и будет</text></svg></div>
+    </div>
+  </section>
+  <section class="v" id="с2" data-name="Чек смены">
+    <div class="vh">
+      <span class="vnum">С2</span><h2>Чек смены</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю С2</button><button class="x" type="button" aria-label="Убрать С2 из сравнения">×</button></div>
+      <p class="concept">концепция: заказ людей как чек: понятно, кто и сколько · подход: язык Тендерной T14, чек на фуксии, моноширинный шрифт, печать «Собрано на 100%», рядом живые люди</p>
+    </div>
+    <div class="poster"><svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Чек смены"><defs>
+  <filter id="fuxSil" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.18  0 0 0 0 0.576  0 0 0 1 0"/></filter>
+  <filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.933 0 0 0 0.067  0.113 0 0 0 0.067  0.51 0 0 0 0.067  0 0 0 1 0"/></filter>
+</defs><rect width="1600" height="900" fill="#FF2E93"/><g transform="rotate(-6 640 450)"><path d="M380 -60 H900 V880 L876 910 L852 880 L828 910 L804 880 L780 910 L756 880 L732 910 L708 880 L684 910 L660 880 L636 910 L612 880 L588 910 L564 880 L540 910 L516 880 L492 910 L468 880 L444 910 L420 880 L396 910 L380 880 Z" fill="#FFFFFF"/><g fill="#111111"><text x="640" y="80" text-anchor="middle" font-family="'Rubik Mono One', 'Arial Black', sans-serif" font-weight="400" font-size="50" fill="#111111">ЧЕЛОВЕКИ</text><text x="640" y="126" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="24" fill="#111111">СМЕНА · КОРПОРАТИВ · 20.12</text><text x="420" y="220" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="30" fill="#111111">ОФИЦИАНТЫ</text><text x="860" y="220" text-anchor="end" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="30" fill="#111111">8</text><text x="420" y="280" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="30" fill="#111111">АНИМАТОРЫ</text><text x="860" y="280" text-anchor="end" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="30" fill="#111111">3</text><text x="420" y="340" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="30" fill="#111111">ХЕЛПЕРЫ</text><text x="860" y="340" text-anchor="end" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="30" fill="#111111">4</text><text x="420" y="400" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="30" fill="#111111">ГАРДЕРОБ</text><text x="860" y="400" text-anchor="end" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="30" fill="#111111">2</text><text x="420" y="500" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="34" fill="#111111">ИТОГО</text><text class="fit" data-max="440" x="860" y="580" text-anchor="end" font-family="'Rubik Mono One', 'Arial Black', sans-serif" font-weight="400" font-size="70" fill="#111111">17 ЧЕЛ.</text><text x="420" y="650" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="22" fill="#111111">сбор 17:00 · дресс-код чёрный</text></g><g fill="none" stroke="#111111" stroke-width="3" stroke-dasharray="10 8"><path d="M420 165 H860"/><path d="M420 440 H860"/><path d="M420 610 H860"/></g><g transform="rotate(12 660 760)"><rect x="470" y="700" width="380" height="130" rx="12" fill="none" stroke="#FF2E93" stroke-width="10"/><text x="660" y="756" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="46" fill="#FF2E93">СОБРАНО</text><text x="660" y="808" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="46" fill="#FF2E93">НА 100%</text></g></g><g transform="rotate(3 1210 620)"><image href="img/l1.webp" x="1004" y="340" width="413" height="560"/><g transform="rotate(-6 1202 656)"><rect x="1090" y="627" width="222" height="44" fill="#FF2E93"/><text x="1202" y="660" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="36" fill="#FFFFFF">официант</text></g></g><text class="fit" data-max="520" x="1040" y="110" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="54" fill="#FFFFFF">Заказал смену,</text><text class="fit" data-max="520" x="1040" y="176" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="54" fill="#FFFFFF">получил</text><text class="fit" data-max="520" x="1040" y="242" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="54" fill="#FFFFFF">человеков.</text></svg></div>
+    <div class="apps">
+      <div class="app"><span>Пропуск</span><svg data-art="пропуск" viewBox="0 0 300 300" role="img" aria-label="Пропуск сотрудника на ивент"><path d="M120 0 L138 40 M180 0 L162 40" stroke="#111111" stroke-width="16"/><rect x="138" y="30" width="24" height="22" rx="4" fill="#9A9A9A"/><rect x="62" y="48" width="176" height="244" rx="16" fill="#FFFFFF" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2"/><rect x="62" y="48" width="176" height="46" rx="16" fill="#111111"/><rect x="62" y="76" width="176" height="18" fill="#111111"/><text class="fit" data-max="150" x="150" y="80" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="20" fill="#FFFFFF">человеки</text><svg x="80" y="100" width="140" height="120" viewBox="0 0 663 900" preserveAspectRatio="xMidYMid meet"><image href="img/l1.webp" width="663" height="900"/></svg><text class="fit" data-max="160" x="150" y="246" text-anchor="middle" font-family="'Golos Text', Arial, sans-serif" font-weight="800" font-size="22" fill="#111111">Денис</text><text class="fit" data-max="160" x="150" y="272" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="18" fill="#111111">официант · 4,9</text></svg></div>
+      <div class="app"><span>Футболка</span><svg data-art="мерч" viewBox="0 0 300 300" role="img" aria-label="Футболка персонала"><path d="M98 52 L60 70 L24 128 L64 150 L84 122 L84 282 L216 282 L216 122 L236 150 L276 128 L240 70 L202 52 Q150 88 98 52 Z" fill="#FFFFFF" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2" stroke-linejoin="round"/><text class="fit" data-max="116" x="150" y="170" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="26" fill="#111111">СОБРАНО</text><text class="fit" data-max="116" x="150" y="204" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="18" fill="#111111">на 100%</text></svg></div>
+      <div class="app wide"><span>Обложка соцсети</span><svg data-art="обложка" viewBox="0 0 600 300" role="img" aria-label="Обложка группы в соцсети"><defs>
+  <filter id="fuxSil" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.18  0 0 0 0 0.576  0 0 0 1 0"/></filter>
+  <filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.933 0 0 0 0.067  0.113 0 0 0 0.067  0.51 0 0 0 0.067  0 0 0 1 0"/></filter>
+</defs><rect width="600" height="300" fill="#FF2E93"/><text class="fit" data-max="340" x="40" y="120" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="40" fill="#FFFFFF">Заказал смену,</text><text class="fit" data-max="340" x="40" y="170" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="40" fill="#FFFFFF">получил человеков.</text><g transform="rotate(3 480 170)"><image href="img/l11.webp" x="373" y="40" width="214" height="260"/></g></svg></div>
+    </div>
+  </section>
+  <section class="v" id="с3" data-name="Ризограф">
+    <div class="vh">
+      <span class="vnum">С3</span><h2>Ризограф</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю С3</button><button class="x" type="button" aria-label="Убрать С3 из сравнения">×</button></div>
+      <p class="concept">концепция: печать в два прогона, фуксия чуть съехала · подход: кремовая бумага, ч/б люди с фуксиевым двойником, чёрный жирный заголовок</p>
+    </div>
+    <div class="poster"><svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Ризограф"><defs>
+  <filter id="fuxSil" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.18  0 0 0 0 0.576  0 0 0 1 0"/></filter>
+  <filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.933 0 0 0 0.067  0.113 0 0 0 0.067  0.51 0 0 0 0.067  0 0 0 1 0"/></filter>
+</defs><rect width="1600" height="900" fill="#F6F2EA"/><text class="fit" data-max="900" x="60" y="210" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="150" fill="#111111">НЕ ПЕРСОНАЛ.</text><text class="fit" data-max="900" x="60" y="380" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="190" fill="#FF2E93">ЧЕЛОВЕКИ</text><image href="img/l6.webp" x="936" y="210" width="375" height="720" filter="url(#fuxSil)"/><image href="img/l6.webp" x="892" y="180" width="375" height="720"/><g transform="rotate(-6 1037 594)"><rect x="938" y="557" width="197" height="57" fill="#111111"/><text x="1037" y="600" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="47" fill="#FFFFFF">промо</text></g><image href="img/l10.webp" x="1179" y="310" width="529" height="620" filter="url(#fuxSil)"/><image href="img/l10.webp" x="1135" y="280" width="529" height="620"/><g transform="rotate(-6 1359 658)"><rect x="1231" y="625" width="255" height="50" fill="#111111"/><text x="1359" y="663" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="41" fill="#FFFFFF">аниматор</text></g><text class="fit" data-max="880" x="64" y="500" font-family="'Golos Text', Arial, sans-serif" font-weight="700" font-size="40" fill="#111111">Аниматоры, промо, официанты, хелперы.</text><text class="fit" data-max="880" x="64" y="560" font-family="'Golos Text', Arial, sans-serif" font-weight="700" font-size="40" fill="#111111">Приедут к сбору. Уйдут после уборки.</text><text x="64" y="840" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="30" fill="#111111" letter-spacing="3">HR-АГЕНТСТВО АНАСТАСИИ БАРИНОВОЙ</text></svg></div>
+    <div class="apps">
+      <div class="app"><span>Пропуск</span><svg data-art="пропуск" viewBox="0 0 300 300" role="img" aria-label="Пропуск сотрудника на ивент"><path d="M120 0 L138 40 M180 0 L162 40" stroke="#FF2E93" stroke-width="16"/><rect x="138" y="30" width="24" height="22" rx="4" fill="#9A9A9A"/><rect x="62" y="48" width="176" height="244" rx="16" fill="#F6F2EA" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2"/><rect x="62" y="48" width="176" height="46" rx="16" fill="#FF2E93"/><rect x="62" y="76" width="176" height="18" fill="#FF2E93"/><text class="fit" data-max="150" x="150" y="80" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="20" fill="#FFFFFF">человеки</text><svg x="80" y="100" width="140" height="120" viewBox="0 0 291 558" preserveAspectRatio="xMidYMid meet"><image href="img/l6.webp" width="291" height="558"/></svg><text class="fit" data-max="160" x="150" y="246" text-anchor="middle" font-family="'Golos Text', Arial, sans-serif" font-weight="800" font-size="22" fill="#111111">Лиза</text><text class="fit" data-max="160" x="150" y="272" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="18" fill="#111111">промо · 4,9</text></svg></div>
+      <div class="app"><span>Футболка</span><svg data-art="мерч" viewBox="0 0 300 300" role="img" aria-label="Футболка персонала"><path d="M98 52 L60 70 L24 128 L64 150 L84 122 L84 282 L216 282 L216 122 L236 150 L276 128 L240 70 L202 52 Q150 88 98 52 Z" fill="#F6F2EA" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2" stroke-linejoin="round"/><text class="fit" data-max="116" x="150" y="170" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="26" fill="#FF2E93">ЧЕЛОВЕКИ</text><text class="fit" data-max="116" x="150" y="204" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="18" fill="#FF2E93">промо</text></svg></div>
+      <div class="app wide"><span>Обложка соцсети</span><svg data-art="обложка" viewBox="0 0 600 300" role="img" aria-label="Обложка группы в соцсети"><defs>
+  <filter id="fuxSil" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.18  0 0 0 0 0.576  0 0 0 1 0"/></filter>
+  <filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.933 0 0 0 0.067  0.113 0 0 0 0.067  0.51 0 0 0 0.067  0 0 0 1 0"/></filter>
+</defs><rect width="600" height="300" fill="#F6F2EA"/><text class="fit" data-max="270" x="40" y="150" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="74" fill="#FF2E93">ЧЕЛОВЕКИ</text><text x="40" y="200" font-family="'Golos Text', Arial, sans-serif" font-weight="700" font-size="30" fill="#111111">не персонал</text><image href="img/l7.webp" x="340" y="37" width="280" height="270" filter="url(#fuxSil)"/><image href="img/l7.webp" x="330" y="30" width="280" height="270"/></svg></div>
+    </div>
+  </section>
+  <section class="v" id="с4" data-name="Дуотон на чёрном">
+    <div class="vh">
+      <span class="vnum">С4</span><h2>Дуотон на чёрном</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю С4</button><button class="x" type="button" aria-label="Убрать С4 из сравнения">×</button></div>
+      <p class="concept">концепция: смена как вечеринка, люди в цвете бренда · подход: чёрный фон, люди дуотоном фуксия и чёрный, кремовая кайма вырезки, слово строками за край</p>
+    </div>
+    <div class="poster"><svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Дуотон на чёрном"><defs>
+  <filter id="fuxSil" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.18  0 0 0 0 0.576  0 0 0 1 0"/></filter>
+  <filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.933 0 0 0 0.067  0.113 0 0 0 0.067  0.51 0 0 0 0.067  0 0 0 1 0"/></filter>
+</defs><rect width="1600" height="900" fill="#111111"/><text x="-80" y="230" font-family="'Rubik Mono One', 'Arial Black', sans-serif" font-weight="400" font-size="200" fill="#FF2E93">ЧЕЛОВЕКИ</text><text x="60" y="460" font-family="'Rubik Mono One', 'Arial Black', sans-serif" font-weight="400" font-size="200" fill="none" stroke="#FF2E93" stroke-width="4">ЧЕЛОВЕКИ</text><text x="-180" y="690" font-family="'Rubik Mono One', 'Arial Black', sans-serif" font-weight="400" font-size="200" fill="#FF2E93">ЧЕЛОВЕКИ</text><text x="20" y="920" font-family="'Rubik Mono One', 'Arial Black', sans-serif" font-weight="400" font-size="200" fill="none" stroke="#FF2E93" stroke-width="4">ЧЕЛОВЕКИ</text><g transform="rotate(-3 520 620)"><image href="img/l9.webp" x="181" y="340" width="679" height="560" filter="url(#duo)"/><g transform="rotate(-6 449 769)"><rect x="296" y="730" width="305" height="60" fill="#FFFFFF"/><text x="449" y="775" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="49" fill="#111111">аниматор</text></g></g><g transform="rotate(3 1120 560)"><image href="img/l2.webp" x="867" y="220" width="505" height="680" filter="url(#duo)"/><g transform="rotate(-6 1055 776)"><rect x="844" y="722" width="421" height="83" fill="#FFFFFF"/><text x="1055" y="785" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="68" fill="#111111">аниматор</text></g></g></svg></div>
+    <div class="apps">
+      <div class="app"><span>Пропуск</span><svg data-art="пропуск" viewBox="0 0 300 300" role="img" aria-label="Пропуск сотрудника на ивент"><path d="M120 0 L138 40 M180 0 L162 40" stroke="#FF2E93" stroke-width="16"/><rect x="138" y="30" width="24" height="22" rx="4" fill="#9A9A9A"/><rect x="62" y="48" width="176" height="244" rx="16" fill="#111111" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2"/><rect x="62" y="48" width="176" height="46" rx="16" fill="#FF2E93"/><rect x="62" y="76" width="176" height="18" fill="#FF2E93"/><text class="fit" data-max="150" x="150" y="80" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="20" fill="#FFFFFF">человеки</text><svg x="80" y="100" width="140" height="120" viewBox="0 0 1091 900" preserveAspectRatio="xMidYMid meet"><image href="img/l9.webp" width="1091" height="900"/></svg><text class="fit" data-max="160" x="150" y="246" text-anchor="middle" font-family="'Golos Text', Arial, sans-serif" font-weight="800" font-size="22" fill="#FFFFFF">Катя</text><text class="fit" data-max="160" x="150" y="272" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="18" fill="#FFFFFF">аниматор · 4,9</text></svg></div>
+      <div class="app"><span>Футболка</span><svg data-art="мерч" viewBox="0 0 300 300" role="img" aria-label="Футболка персонала"><path d="M98 52 L60 70 L24 128 L64 150 L84 122 L84 282 L216 282 L216 122 L236 150 L276 128 L240 70 L202 52 Q150 88 98 52 Z" fill="#111111" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2" stroke-linejoin="round"/><text class="fit" data-max="116" x="150" y="170" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="26" fill="#FF2E93">ЧЕЛОВЕКИ</text><text class="fit" data-max="116" x="150" y="204" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="18" fill="#FF2E93">пятница · 17:00</text></svg></div>
+      <div class="app wide"><span>Обложка соцсети</span><svg data-art="обложка" viewBox="0 0 600 300" role="img" aria-label="Обложка группы в соцсети"><defs>
+  <filter id="fuxSil" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.18  0 0 0 0 0.576  0 0 0 1 0"/></filter>
+  <filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.933 0 0 0 0.067  0.113 0 0 0 0.067  0.51 0 0 0 0.067  0 0 0 1 0"/></filter>
+</defs><rect width="600" height="300" fill="#111111"/><text x="-20" y="140" font-family="'Rubik Mono One', 'Arial Black', sans-serif" font-weight="400" font-size="96" fill="#FF2E93">ЧЕЛОВЕКИ</text><image href="img/l5.webp" x="365" y="40" width="211" height="260" filter="url(#duo)"/><text x="30" y="240" font-family="'Golos Text', Arial, sans-serif" font-weight="700" font-size="28" fill="#FFFFFF">смена на вечеринке</text></svg></div>
+    </div>
+  </section>
+  <section class="v" id="с5" data-name="Пропуска на шнурках">
+    <div class="vh">
+      <span class="vnum">С5</span><h2>Пропуска на шнурках</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю С5</button><button class="x" type="button" aria-label="Убрать С5 из сравнения">×</button></div>
+      <p class="concept">концепция: команда, в которую хочется попасть, у каждого свой пропуск · подход: фуксиевые шнурки, белые бейджи с ч/б фото, имя, роль и рейтинг</p>
+    </div>
+    <div class="poster"><svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Пропуска на шнурках"><defs>
+  <filter id="fuxSil" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.18  0 0 0 0 0.576  0 0 0 1 0"/></filter>
+  <filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.933 0 0 0 0.067  0.113 0 0 0 0.067  0.51 0 0 0 0.067  0 0 0 1 0"/></filter>
+</defs><rect width="1600" height="900" fill="#FFD3E5"/><g transform="rotate(-6 270 400)"><path d="M230 -20 L260 150 M310 -20 L280 150" stroke="#FF2E93" stroke-width="26"/><rect x="245" y="140" width="50" height="40" rx="8" fill="#A7A7A7"/><rect x="120" y="170" width="300" height="520" rx="26" fill="#FFFFFF"/><rect x="120" y="170" width="300" height="80" rx="26" fill="#FF2E93"/><rect x="120" y="220" width="300" height="30" fill="#FF2E93"/><text x="270" y="224" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="38" fill="#FFFFFF">человеки</text><svg x="140" y="262" width="260" height="290" viewBox="0 0 663 900" preserveAspectRatio="xMidYMax meet"><image href="img/l1.webp" width="663" height="900"/></svg><text x="270" y="600" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="44" fill="#111111">Денис</text><text x="270" y="648" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="28" fill="#111111">официант · 4,9</text></g><g transform="rotate(4 630 400)"><path d="M590 -20 L620 150 M670 -20 L640 150" stroke="#FF2E93" stroke-width="26"/><rect x="605" y="140" width="50" height="40" rx="8" fill="#A7A7A7"/><rect x="480" y="170" width="300" height="520" rx="26" fill="#FFFFFF"/><rect x="480" y="170" width="300" height="80" rx="26" fill="#FF2E93"/><rect x="480" y="220" width="300" height="30" fill="#FF2E93"/><text x="630" y="224" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="38" fill="#FFFFFF">человеки</text><svg x="500" y="262" width="260" height="290" viewBox="0 0 291 558" preserveAspectRatio="xMidYMax meet"><image href="img/l6.webp" width="291" height="558"/></svg><text x="630" y="600" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="44" fill="#111111">Лиза</text><text x="630" y="648" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="28" fill="#111111">промо · 4,9</text></g><g transform="rotate(-3 990 400)"><path d="M950 -20 L980 150 M1030 -20 L1000 150" stroke="#FF2E93" stroke-width="26"/><rect x="965" y="140" width="50" height="40" rx="8" fill="#A7A7A7"/><rect x="840" y="170" width="300" height="520" rx="26" fill="#FFFFFF"/><rect x="840" y="170" width="300" height="80" rx="26" fill="#FF2E93"/><rect x="840" y="220" width="300" height="30" fill="#FF2E93"/><text x="990" y="224" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="38" fill="#FFFFFF">человеки</text><svg x="860" y="262" width="260" height="290" viewBox="0 0 566 688" preserveAspectRatio="xMidYMax meet"><image href="img/l11.webp" width="566" height="688"/></svg><text x="990" y="600" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="44" fill="#111111">Макс</text><text x="990" y="648" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="28" fill="#111111">хелпер · 4,9</text></g><g transform="rotate(6 1350 400)"><path d="M1310 -20 L1340 150 M1390 -20 L1360 150" stroke="#FF2E93" stroke-width="26"/><rect x="1325" y="140" width="50" height="40" rx="8" fill="#A7A7A7"/><rect x="1200" y="170" width="300" height="520" rx="26" fill="#FFFFFF"/><rect x="1200" y="170" width="300" height="80" rx="26" fill="#FF2E93"/><rect x="1200" y="220" width="300" height="30" fill="#FF2E93"/><text x="1350" y="224" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="38" fill="#FFFFFF">человеки</text><svg x="1220" y="262" width="260" height="290" viewBox="0 0 571 669" preserveAspectRatio="xMidYMax meet"><image href="img/l10.webp" width="571" height="669"/></svg><text x="1350" y="600" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="44" fill="#111111">Ира</text><text x="1350" y="648" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="28" fill="#111111">аниматор · 4,9</text></g><text class="fit" data-max="1460" x="800" y="820" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="56" fill="#111111">У каждого человека свой пропуск.</text></svg></div>
+    <div class="apps">
+      <div class="app"><span>Пропуск</span><svg data-art="пропуск" viewBox="0 0 300 300" role="img" aria-label="Пропуск сотрудника на ивент"><path d="M120 0 L138 40 M180 0 L162 40" stroke="#FF2E93" stroke-width="16"/><rect x="138" y="30" width="24" height="22" rx="4" fill="#9A9A9A"/><rect x="62" y="48" width="176" height="244" rx="16" fill="#FFFFFF" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2"/><rect x="62" y="48" width="176" height="46" rx="16" fill="#FF2E93"/><rect x="62" y="76" width="176" height="18" fill="#FF2E93"/><text class="fit" data-max="150" x="150" y="80" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="20" fill="#FFFFFF">человеки</text><svg x="80" y="100" width="140" height="120" viewBox="0 0 566 688" preserveAspectRatio="xMidYMid meet"><image href="img/l11.webp" width="566" height="688"/></svg><text class="fit" data-max="160" x="150" y="246" text-anchor="middle" font-family="'Golos Text', Arial, sans-serif" font-weight="800" font-size="22" fill="#111111">Макс</text><text class="fit" data-max="160" x="150" y="272" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="18" fill="#111111">хелпер · 4,9</text></svg></div>
+      <div class="app"><span>Футболка</span><svg data-art="мерч" viewBox="0 0 300 300" role="img" aria-label="Футболка персонала"><path d="M98 52 L60 70 L24 128 L64 150 L84 122 L84 282 L216 282 L216 122 L236 150 L276 128 L240 70 L202 52 Q150 88 98 52 Z" fill="#FFD3E5" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2" stroke-linejoin="round"/><text class="fit" data-max="116" x="150" y="170" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="26" fill="#111111">человеки</text><text class="fit" data-max="116" x="150" y="204" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="18" fill="#111111">свой пропуск</text></svg></div>
+      <div class="app wide"><span>Обложка соцсети</span><svg data-art="обложка" viewBox="0 0 600 300" role="img" aria-label="Обложка группы в соцсети"><defs>
+  <filter id="fuxSil" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.18  0 0 0 0 0.576  0 0 0 1 0"/></filter>
+  <filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.933 0 0 0 0.067  0.113 0 0 0 0.067  0.51 0 0 0 0.067  0 0 0 1 0"/></filter>
+</defs><rect width="600" height="300" fill="#FFD3E5"/><g transform="rotate(-4 120 200)"><image href="img/l1.webp" x="46" y="100" width="147" height="200"/></g><image href="img/l6.webp" x="244" y="85" width="112" height="215"/><g transform="rotate(4 480 200)"><image href="img/l10.webp" x="395" y="100" width="171" height="200"/></g><text class="fit" data-max="540" x="300" y="54" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="32" fill="#111111">команда человеков</text></svg></div>
+    </div>
+  </section>
+  <section class="v" id="с6" data-name="Гирлянда людей">
+    <div class="vh">
+      <span class="vnum">С6</span><h2>Гирлянда людей</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю С6</button><button class="x" type="button" aria-label="Убрать С6 из сравнения">×</button></div>
+      <p class="concept">концепция: логотип Насти с гирляндой, только человечки живые · подход: белый лист с фуксиевой каймой, пять вырезок плечом к плечу, искры, круглые рукописные буквы</p>
+    </div>
+    <div class="poster"><svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Гирлянда людей"><defs>
+  <filter id="fuxSil" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.18  0 0 0 0 0.576  0 0 0 1 0"/></filter>
+  <filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.933 0 0 0 0.067  0.113 0 0 0 0.067  0.51 0 0 0 0.067  0 0 0 1 0"/></filter>
+</defs><rect width="1600" height="900" fill="#FF2E93"/><rect x="40" y="40" width="1520" height="820" rx="60" fill="#FFFFFF"/><path d="M93 243 L55 229 M111 219 L88 186 M140 210 L140 170 " stroke="#FF2E93" stroke-width="12" stroke-linecap="round" fill="none"/><path d="M1460 210 L1460 170 M1489 219 L1512 186 M1507 243 L1545 229 " stroke="#FF2E93" stroke-width="12" stroke-linecap="round" fill="none"/><g transform="rotate(-3 230 525)"><image href="img/l2.webp" x="55" y="290" width="349" height="470"/><g transform="rotate(-6 185 675)"><rect x="39" y="637" width="291" height="57" fill="#FF2E93"/><text x="185" y="680" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="47" fill="#FFFFFF">аниматор</text></g></g><g transform="rotate(2 515 525)"><image href="img/l5.webp" x="324" y="290" width="381" height="470"/><g transform="rotate(-6 530 634)"><rect x="408" y="603" width="243" height="48" fill="#FF2E93"/><text x="530" y="639" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="39" fill="#FFFFFF">официант</text></g></g><g transform="rotate(-2 800 525)"><image href="img/l11.webp" x="607" y="290" width="387" height="470"/><g transform="rotate(-6 803 557)"><rect x="728" y="532" width="150" height="38" fill="#FF2E93"/><text x="803" y="561" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="31" fill="#FFFFFF">хелпер</text></g></g><g transform="rotate(3 1085 525)"><image href="img/l6.webp" x="962" y="290" width="245" height="470"/><g transform="rotate(-6 1057 560)"><rect x="993" y="536" width="128" height="37" fill="#FF2E93"/><text x="1057" y="564" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="31" fill="#FFFFFF">промо</text></g></g><g transform="rotate(-1 1370 525)"><image href="img/l1.webp" x="1197" y="290" width="346" height="470"/><g transform="rotate(-6 1363 555)"><rect x="1270" y="531" width="187" height="37" fill="#FF2E93"/><text x="1363" y="559" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="30" fill="#FFFFFF">официант</text></g></g><text class="fit" data-max="900" x="800" y="830" text-anchor="middle" font-family="'Shantell Sans', 'Comic Sans MS', cursive" font-weight="800" font-size="120" fill="#111111">человеки</text></svg></div>
+    <div class="apps">
+      <div class="app"><span>Пропуск</span><svg data-art="пропуск" viewBox="0 0 300 300" role="img" aria-label="Пропуск сотрудника на ивент"><path d="M120 0 L138 40 M180 0 L162 40" stroke="#FF2E93" stroke-width="16"/><rect x="138" y="30" width="24" height="22" rx="4" fill="#9A9A9A"/><rect x="62" y="48" width="176" height="244" rx="16" fill="#FFFFFF" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2"/><rect x="62" y="48" width="176" height="46" rx="16" fill="#FF2E93"/><rect x="62" y="76" width="176" height="18" fill="#FF2E93"/><text class="fit" data-max="150" x="150" y="80" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="20" fill="#FFFFFF">человеки</text><svg x="80" y="100" width="140" height="120" viewBox="0 0 516 636" preserveAspectRatio="xMidYMid meet"><image href="img/l5.webp" width="516" height="636"/></svg><text class="fit" data-max="160" x="150" y="246" text-anchor="middle" font-family="'Golos Text', Arial, sans-serif" font-weight="800" font-size="22" fill="#111111">Даша</text><text class="fit" data-max="160" x="150" y="272" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="18" fill="#111111">официант · 4,9</text></svg></div>
+      <div class="app"><span>Футболка</span><svg data-art="мерч" viewBox="0 0 300 300" role="img" aria-label="Футболка персонала"><path d="M98 52 L60 70 L24 128 L64 150 L84 122 L84 282 L216 282 L216 122 L236 150 L276 128 L240 70 L202 52 Q150 88 98 52 Z" fill="#FFFFFF" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2" stroke-linejoin="round"/><text class="fit" data-max="116" x="150" y="170" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="26" fill="#FF2E93">человеки</text><text class="fit" data-max="116" x="150" y="204" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="18" fill="#FF2E93">HR-агентство</text></svg></div>
+      <div class="app wide"><span>Обложка соцсети</span><svg data-art="обложка" viewBox="0 0 600 300" role="img" aria-label="Обложка группы в соцсети"><defs>
+  <filter id="fuxSil" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.18  0 0 0 0 0.576  0 0 0 1 0"/></filter>
+  <filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.933 0 0 0 0.067  0.113 0 0 0 0.067  0.51 0 0 0 0.067  0 0 0 1 0"/></filter>
+</defs><rect width="600" height="300" fill="#FF2E93"/><rect x="12" y="12" width="576" height="276" rx="26" fill="#FFFFFF"/><image href="img/l1.webp" x="90" y="46" width="140" height="190"/><image href="img/l11.webp" x="222" y="46" width="156" height="190"/><image href="img/l6.webp" x="390" y="46" width="99" height="190"/><text x="300" y="282" text-anchor="middle" font-family="'Shantell Sans', 'Comic Sans MS', cursive" font-weight="800" font-size="40" fill="#111111">человеки</text></svg></div>
+    </div>
+  </section>
+  <section class="v" id="с7" data-name="Таблоид">
+    <div class="vh">
+      <span class="vnum">С7</span><h2>Таблоид</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю С7</button><button class="x" type="button" aria-label="Убрать С7 из сравнения">×</button></div>
+      <p class="concept">концепция: сенсация на первой полосе: «Человеки нарасхват» · подход: газетная бумага, фуксиевый заголовок, ч/б люди врезкой, маркер поверх подписи</p>
+    </div>
+    <div class="poster"><svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Таблоид"><defs>
+  <filter id="fuxSil" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.18  0 0 0 0 0.576  0 0 0 1 0"/></filter>
+  <filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.933 0 0 0 0.067  0.113 0 0 0 0.067  0.51 0 0 0 0.067  0 0 0 1 0"/></filter>
+</defs><rect width="1600" height="900" fill="#EFEBE3"/><text class="fit" data-max="1460" x="800" y="120" text-anchor="middle" font-family="'Rubik Mono One', 'Arial Black', sans-serif" font-weight="400" font-size="96" fill="#111111">ВЕСТИ ИВЕНТОВ</text><rect x="70" y="150" width="1460" height="6" fill="#111111"/><text x="800" y="196" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="26" fill="#111111" letter-spacing="3">№ 1 · ОКТЯБРЬ 2026 · ЦЕНА: ОДНА СМЕНА</text><rect x="70" y="214" width="1460" height="2" fill="#111111"/><text class="fit" data-max="800" x="70" y="380" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="170" fill="#FF2E93">ЧЕЛОВЕКИ</text><text class="fit" data-max="800" x="70" y="520" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="150" fill="#FF2E93">НАРАСХВАТ!</text><rect x="70" y="580" width="800" height="70" fill="#FFF06A"/><text class="fit" data-max="770" x="86" y="630" font-family="'Golos Text', Arial, sans-serif" font-weight="800" font-size="40" fill="#111111">Корпоратив собрал смену за 40 минут</text><rect x="70" y="690" width="190" height="12" fill="#A39E95"/><rect x="70" y="724" width="240" height="12" fill="#A39E95"/><rect x="70" y="758" width="240" height="12" fill="#A39E95"/><rect x="70" y="792" width="190" height="12" fill="#A39E95"/><rect x="70" y="826" width="240" height="12" fill="#A39E95"/><rect x="340" y="690" width="240" height="12" fill="#A39E95"/><rect x="340" y="724" width="240" height="12" fill="#A39E95"/><rect x="340" y="758" width="190" height="12" fill="#A39E95"/><rect x="340" y="792" width="240" height="12" fill="#A39E95"/><rect x="340" y="826" width="240" height="12" fill="#A39E95"/><rect x="610" y="690" width="240" height="12" fill="#A39E95"/><rect x="610" y="724" width="190" height="12" fill="#A39E95"/><rect x="610" y="758" width="240" height="12" fill="#A39E95"/><rect x="610" y="792" width="240" height="12" fill="#A39E95"/><rect x="610" y="826" width="190" height="12" fill="#A39E95"/><image href="img/l6.webp" x="1073" y="220" width="355" height="680"/><g transform="rotate(-6 1209 611)"><rect x="1116" y="576" width="186" height="54" fill="#FF2E93"/><text x="1209" y="616" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="44" fill="#FFFFFF">промо</text></g></svg></div>
+    <div class="apps">
+      <div class="app"><span>Пропуск</span><svg data-art="пропуск" viewBox="0 0 300 300" role="img" aria-label="Пропуск сотрудника на ивент"><path d="M120 0 L138 40 M180 0 L162 40" stroke="#111111" stroke-width="16"/><rect x="138" y="30" width="24" height="22" rx="4" fill="#9A9A9A"/><rect x="62" y="48" width="176" height="244" rx="16" fill="#EFEBE3" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2"/><rect x="62" y="48" width="176" height="46" rx="16" fill="#111111"/><rect x="62" y="76" width="176" height="18" fill="#111111"/><text class="fit" data-max="150" x="150" y="80" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="20" fill="#FFFFFF">человеки</text><svg x="80" y="100" width="140" height="120" viewBox="0 0 571 669" preserveAspectRatio="xMidYMid meet"><image href="img/l10.webp" width="571" height="669"/></svg><text class="fit" data-max="160" x="150" y="246" text-anchor="middle" font-family="'Golos Text', Arial, sans-serif" font-weight="800" font-size="22" fill="#111111">Ира</text><text class="fit" data-max="160" x="150" y="272" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="18" fill="#111111">аниматор · 4,9</text></svg></div>
+      <div class="app"><span>Футболка</span><svg data-art="мерч" viewBox="0 0 300 300" role="img" aria-label="Футболка персонала"><path d="M98 52 L60 70 L24 128 L64 150 L84 122 L84 282 L216 282 L216 122 L236 150 L276 128 L240 70 L202 52 Q150 88 98 52 Z" fill="#EFEBE3" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2" stroke-linejoin="round"/><text class="fit" data-max="116" x="150" y="170" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="26" fill="#FF2E93">НАРАСХВАТ</text><text class="fit" data-max="116" x="150" y="204" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="18" fill="#FF2E93">вести ивентов</text></svg></div>
+      <div class="app wide"><span>Обложка соцсети</span><svg data-art="обложка" viewBox="0 0 600 300" role="img" aria-label="Обложка группы в соцсети"><defs>
+  <filter id="fuxSil" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.18  0 0 0 0 0.576  0 0 0 1 0"/></filter>
+  <filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.933 0 0 0 0.067  0.113 0 0 0 0.067  0.51 0 0 0 0.067  0 0 0 1 0"/></filter>
+</defs><rect width="600" height="300" fill="#EFEBE3"/><text class="fit" data-max="320" x="30" y="110" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="62" fill="#FF2E93">ЧЕЛОВЕКИ</text><text class="fit" data-max="320" x="30" y="170" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="50" fill="#FF2E93">НАРАСХВАТ!</text><image href="img/l6.webp" x="407" y="20" width="146" height="280"/></svg></div>
+    </div>
+  </section>
+  <section class="v" id="с8" data-name="Стикерпак">
+    <div class="vh">
+      <span class="vnum">С8</span><h2>Стикерпак</h2>
+      <div class="acts"><button class="ok" type="button">Утверждаю С8</button><button class="x" type="button" aria-label="Убрать С8 из сравнения">×</button></div>
+      <p class="concept">концепция: бренд говорит голосом зумеров, людей хочется утащить в стикеры Telegram · подход: вырезки как наклейки, разбросаны под углом, пузыри фраз, фуксия и розовый</p>
+    </div>
+    <div class="poster"><svg data-art="плакат" viewBox="0 0 1600 900" role="img" aria-label="Стикерпак"><defs>
+  <filter id="fuxSil" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.18  0 0 0 0 0.576  0 0 0 1 0"/></filter>
+  <filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.933 0 0 0 0.067  0.113 0 0 0 0.067  0.51 0 0 0 0.067  0 0 0 1 0"/></filter>
+</defs><rect width="1600" height="900" fill="#FF2E93"/><text class="fit" data-max="1040" x="800" y="340" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="220" fill="#FFD3E5">человеки</text><g transform="rotate(-8 250 660)"><image href="img/l10.webp" x="45" y="420" width="410" height="480"/><g transform="rotate(-6 218 713)"><rect x="120" y="687" width="197" height="39" fill="#111111"/><text x="218" y="717" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="32" fill="#FFFFFF">аниматор</text></g></g><g transform="rotate(5 790 650)"><image href="img/l7.webp" x="531" y="400" width="518" height="500"/><g transform="rotate(-6 896 764)"><rect x="804" y="729" width="184" height="54" fill="#111111"/><text x="896" y="770" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="44" fill="#FFFFFF">промо</text></g></g><g transform="rotate(-5 1340 655)"><image href="img/l1.webp" x="1160" y="410" width="361" height="490"/><g transform="rotate(-6 1333 687)"><rect x="1235" y="661" width="195" height="38" fill="#111111"/><text x="1333" y="690" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="32" fill="#FFFFFF">официант</text></g></g><g transform="translate(40 -80) rotate(6 1290 170)"><path d="M1110 110 H1470 Q1500 110 1500 140 V200 Q1500 230 1470 230 H1200 L1160 262 L1170 230 H1110 Q1080 230 1080 200 V140 Q1080 110 1110 110 Z" fill="#FFFFFF" stroke="#111111" stroke-width="5"/><text x="1290" y="192" text-anchor="middle" font-family="'Shantell Sans', 'Comic Sans MS', cursive" font-weight="800" font-size="58" fill="#111111">беру смену!</text></g><g transform="rotate(-6 240 90)"><rect x="60" y="40" width="360" height="100" rx="50" fill="#111111"/><text x="240" y="108" text-anchor="middle" font-family="'Shantell Sans', 'Comic Sans MS', cursive" font-weight="800" font-size="52" fill="#FFFFFF">я на ивент</text></g></svg></div>
+    <div class="apps">
+      <div class="app"><span>Пропуск</span><svg data-art="пропуск" viewBox="0 0 300 300" role="img" aria-label="Пропуск сотрудника на ивент"><path d="M120 0 L138 40 M180 0 L162 40" stroke="#111111" stroke-width="16"/><rect x="138" y="30" width="24" height="22" rx="4" fill="#9A9A9A"/><rect x="62" y="48" width="176" height="244" rx="16" fill="#FFFFFF" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2"/><rect x="62" y="48" width="176" height="46" rx="16" fill="#111111"/><rect x="62" y="76" width="176" height="18" fill="#111111"/><text class="fit" data-max="150" x="150" y="80" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="20" fill="#FFFFFF">человеки</text><svg x="80" y="100" width="140" height="120" viewBox="0 0 672 649" preserveAspectRatio="xMidYMid meet"><image href="img/l7.webp" width="672" height="649"/></svg><text class="fit" data-max="160" x="150" y="246" text-anchor="middle" font-family="'Golos Text', Arial, sans-serif" font-weight="800" font-size="22" fill="#111111">Соня</text><text class="fit" data-max="160" x="150" y="272" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="18" fill="#111111">промо · 4,9</text></svg></div>
+      <div class="app"><span>Футболка</span><svg data-art="мерч" viewBox="0 0 300 300" role="img" aria-label="Футболка персонала"><path d="M98 52 L60 70 L24 128 L64 150 L84 122 L84 282 L216 282 L216 122 L236 150 L276 128 L240 70 L202 52 Q150 88 98 52 Z" fill="#111111" style="stroke:var(--muted);stroke-opacity:.45" stroke-width="2" stroke-linejoin="round"/><text class="fit" data-max="116" x="150" y="170" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="26" fill="#FF2E93">беру смену!</text><text class="fit" data-max="116" x="150" y="204" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="18" fill="#FF2E93">человеки</text></svg></div>
+      <div class="app wide"><span>Обложка соцсети</span><svg data-art="обложка" viewBox="0 0 600 300" role="img" aria-label="Обложка группы в соцсети"><defs>
+  <filter id="fuxSil" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.18  0 0 0 0 0.576  0 0 0 1 0"/></filter>
+  <filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.933 0 0 0 0.067  0.113 0 0 0 0.067  0.51 0 0 0 0.067  0 0 0 1 0"/></filter>
+</defs><rect width="600" height="300" fill="#FF2E93"/><g transform="rotate(-10 120 185)"><image href="img/l10.webp" x="22" y="70" width="196" height="230"/></g><g transform="rotate(6 470 175)"><image href="img/l1.webp" x="378" y="50" width="184" height="250"/></g><rect x="200" y="100" width="200" height="60" rx="30" fill="#FFFFFF"/><text x="300" y="140" text-anchor="middle" font-family="'Shantell Sans', 'Comic Sans MS', cursive" font-weight="800" font-size="28" fill="#111111">беру смену!</text></svg></div>
+    </div>
+  </section>
+  <footer class="foot">Эскизы, 21 октября 2026. Фото с ивентов Каталиста; для печати наружу нужно согласие людей в кадре или своя фотосессия. Имена на пропусках пример.</footer>
+</main>
+
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+  // ---------- навигация, скрытие, утверждение ----------
+  var secs=[].slice.call(document.querySelectorAll('section.v'));
+  var nav=document.getElementById('nav'), restore=document.getElementById('restore'), KEY='cheloveki-stil-hidden';
+  function load(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return []}}
+  function save(a){try{localStorage.setItem(KEY,JSON.stringify(a))}catch(e){}}
+  secs.forEach(function(s){
+    var a=document.createElement('a');a.href='#'+s.id;a.textContent=s.querySelector('.vnum').textContent+' '+s.querySelector('h2').textContent;a.dataset.id=s.id;nav.appendChild(a);
+  });
+  function render(){
+    var hid=load();restore.innerHTML='';
+    secs.forEach(function(s){
+      var h=hid.indexOf(s.id)>-1;s.hidden=h;nav.querySelector('[data-id="'+s.id+'"]').hidden=h;
+      if(h){var b=document.createElement('button');b.type='button';b.textContent='Вернуть '+s.id.toUpperCase();b.onclick=function(){save(load().filter(function(x){return x!==s.id}));render();};restore.appendChild(b);}
+    });
+  }
+  secs.forEach(function(s){
+    s.querySelector('.x').addEventListener('click',function(){var h=load();if(h.indexOf(s.id)<0)h.push(s.id);save(h);render();});
+    s.querySelector('.ok').addEventListener('click',function(){
+      var phrase='Утверждаю '+s.id.toUpperCase()+': '+s.dataset.name;
+      var t=document.getElementById('toast');
+      function show(ok){t.innerHTML=ok?'Скопировано, вставь в чат: <b>'+esc(phrase)+'</b>':'Скопируй и вставь в чат:<input id="phrase" readonly value="'+esc(phrase)+'">';t.hidden=false;var i=document.getElementById('phrase');if(i){i.focus();i.select();}clearTimeout(t._h);t._h=setTimeout(function(){t.hidden=true},ok?3500:9000);}
+      try{navigator.clipboard.writeText(phrase).then(function(){show(true)},function(){show(false)});}catch(e){show(false)}
+    });
+  });
+  render();
+  // текст не вылезает: ужимаю по реальной ширине после загрузки шрифтов
+  // надпись по кольцу ачивки: если в естественную длину не влезает в 650 из 670, уменьшаю кегль, а не сжимаю буквы друг в друга
+  function ringFit(){document.querySelectorAll('text.ring').forEach(function(t){var p=t.querySelector('textPath');t.setAttribute('font-size',21);p.removeAttribute('textLength');var w=t.getComputedTextLength();if(w>650)t.setAttribute('font-size',(21*650/w).toFixed(1));p.setAttribute('textLength',670);});}
+  function fit(){ringFit();document.querySelectorAll('text.fit').forEach(function(t){var max=+t.dataset.max,fs=+(t.dataset.fs||t.getAttribute('font-size')||parseFloat(getComputedStyle(t).fontSize));t.dataset.fs=fs;t.setAttribute('font-size',fs);var w=t.getComputedTextLength();if(w>max)t.setAttribute('font-size',(fs*max/w).toFixed(1));});}
+  fit();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){nav.querySelectorAll('a').forEach(function(a){a.classList.toggle('on',a.dataset.id===e.target.id)});}})},{rootMargin:'-40% 0px -55% 0px'});
+    secs.forEach(function(s){io.observe(s)});
+  }
+})();
+</script>
+
+</body>
+</html>
