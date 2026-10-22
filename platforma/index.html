@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="Человеки · платформа">
-<meta property="og:description" content="Человеки: платформа персонала для ивентов">
+<meta property="og:description" content="Человеки: платформа персонала для ивентов. Проект Анастасии Бариновой, куратор Мария Варламова">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0;font:14px system-ui;background:#f7f7f5}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Человеки · платформа</title>
 <meta property="og:type" content="website">
@@ -32,6 +32,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-siz
 h1,h2,h3{font-family:var(--f-head);font-weight:800;line-height:1.08;margin:0;text-wrap:balance}
 p{margin:0}
 .hero{padding-block:24px 0}
+.credits{display:flex;flex-wrap:wrap;gap:4px 28px;padding-block:14px 0;font-size:var(--fs-s);font-weight:600;color:var(--muted)}
 .hero-svg{width:100%;height:auto;display:block;border-radius:var(--r)}
 .dots{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding-block:14px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper)}
 .dots a{height:40px;padding:0 16px;display:inline-flex;align-items:center;border-radius:999px;background:var(--white);color:var(--ink);text-decoration:none;font-weight:700;font-size:var(--fs-s);border:2px solid var(--malina)}
@@ -56,7 +57,9 @@ td.sale{color:var(--malina);font-size:var(--fs-l)}
 td small{display:block;color:var(--muted);font-size:var(--fs-s)}
 .src{margin-top:16px;color:var(--muted);font-size:var(--fs-s)}
 .src a{color:var(--malina)}
-.calc{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:24px;margin-top:32px;align-items:stretch}
+.calc{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:24px;margin-top:32px;align-items:start}
+.calc>.panel:first-child{display:flex;flex-direction:column;min-height:0}
+#rows{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding-right:8px;scrollbar-color:var(--baby) transparent}
 .panel{background:var(--white);border-radius:var(--r);padding:28px;border:2px solid var(--baby)}
 .presets{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
 .presets button,.reset{height:var(--btn-h);padding:0 20px;border-radius:999px;border:2px solid var(--malina);background:var(--white);color:var(--malina);font:700 var(--fs-m) var(--f-body);cursor:pointer}
@@ -80,7 +83,7 @@ td small{display:block;color:var(--muted);font-size:var(--fs-s)}
 .res .lb{font-family:var(--f-num);font-size:var(--fs-s);letter-spacing:.08em;text-transform:uppercase;opacity:.85}
 .res .line{display:flex;justify-content:space-between;gap:16px;padding-block:14px;border-top:1px solid rgba(255,255,255,.28);font-size:var(--fs-m)}
 .res .line b{font-family:var(--f-num)}
-.res .profit{background:var(--fux);border-radius:16px;padding:24px;margin-top:auto}
+.res .profit{background:var(--fux);border-radius:16px;padding:24px;margin-top:22px}
 .brk-t{margin-top:22px}
 .brk{display:grid;gap:2px;margin-top:8px}
 .brk div{display:flex;justify-content:space-between;gap:12px;align-items:center;padding-block:8px;border-bottom:1px solid rgba(255,255,255,.2)}
@@ -107,6 +110,8 @@ td.num small{display:block;font-weight:500}
 @media (max-width:1000px){
   .cards{grid-template-columns:1fr 1fr}
   .calc{grid-template-columns:1fr}
+  .calc>.panel:first-child{height:auto!important}
+  #rows{max-height:60vh}
   .month{grid-template-columns:1fr}
 }
 @media (max-width:560px){
@@ -129,6 +134,7 @@ td.num small{display:block;font-weight:500}
 <body>
 <div class="wrap">
   <section class="hero"><svg data-art="плакат" class="hero-svg" viewBox="0 0 1600 900" role="img" aria-label="Малина и фуксия"><rect width="1600" height="900" fill="#D1105A"/><text class="fit" data-max="1480" x="800" y="320" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="290" fill="#FFC2E0">человеки</text><text x="60" y="74" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="26" fill="#FFFFFF" letter-spacing="3">HR-АГЕНТСТВО АНАСТАСИИ БАРИНОВОЙ</text><text x="1540" y="74" text-anchor="end" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="26" fill="#FFFFFF" letter-spacing="3">ПЕРСОНАЛ ДЛЯ ИВЕНТОВ</text><rect y="560" width="1600" height="340" fill="#FF2E93"/><g transform="rotate(-4 280 620)"><image href="img/l6-cut.webp" x="142" y="340" width="277" height="560"/></g><g transform="rotate(2 800 600)"><image href="img/l7-cut.webp" x="489" y="300" width="622" height="600"/></g><g transform="rotate(4 1330 620)"><image href="img/l1-cut.webp" x="1122" y="340" width="415" height="560"/></g><g transform="rotate(-4 280 620)"><g transform="rotate(-5 249 677)"><rect x="154" y="649" width="191" height="43" rx="6" fill="#111111"/><text x="249" y="682" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="35" fill="#FFFFFF">хостес</text></g></g><g transform="rotate(2 800 600)"><g transform="rotate(-5 940 757)"><rect x="821" y="716" width="239" height="62" rx="9" fill="#111111"/><text x="940" y="763" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="51" fill="#FFFFFF">промо</text></g></g><g transform="rotate(4 1330 620)"><g transform="rotate(-5 1330 663)"><rect x="1211" y="636" width="237" height="42" rx="6" fill="#111111"/><text x="1330" y="667" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="34" fill="#FFFFFF">официант</text></g></g></svg></section>
+  <p class="credits"><span>Проект Анастасии Бариновой</span><span>Куратор: Мария Варламова</span></p>
   <nav class="dots" id="dots"><a href="#ideya">Идея</a><a href="#ceny">Цены</a><a href="#kalk">Калькулятор</a><a href="#mesyac">Месяц</a></nav>
 
   <section class="slide" id="ideya">
@@ -266,7 +272,16 @@ td.num small{display:block;font-weight:500}
     document.getElementById('profit').textContent=rub(t.sale-t.cost);
     document.getElementById('margin').textContent='маржа '+(t.sale?Math.round((t.sale-t.cost)/t.sale*100):0)+'% от чека';
     document.getElementById('brk').innerHTML=t.parts.map(function(p){return '<div><span>'+p[0]+'<small>'+p[1]+'</small></span><b>'+rub(p[2])+'</b></div>'}).join('')||'<div><span>Добавь людей слева</span></div>';
+    fitCalc();
   }
+  // левая панель высотой с правую (не меньше 640px), список ролей прокручивается внутри
+  function fitCalc(){
+    var L=document.querySelector('.calc>.panel'),Rp=document.querySelector('.calc>.res');
+    if(!L||!Rp)return;
+    if(window.matchMedia('(max-width:1000px)').matches){L.style.height='';return}
+    L.style.height=Math.max(Rp.offsetHeight,640)+'px';
+  }
+  window.addEventListener('resize',fitCalc);
   rows.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var k=b.dataset.k;set(k,val(k)+(+b.dataset.v));clearPreset();calc();});
   rows.addEventListener('input',function(){clearPreset();calc();});
   document.querySelector('.extra').addEventListener('click',function(e){var b=e.target.closest('button[data-d]');if(!b)return;days.value=Math.min(30,Math.max(1,(+days.value||1)+(+b.dataset.d)));clearPreset();calc();});
