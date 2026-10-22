@@ -226,7 +226,7 @@ td.num small{display:block;font-weight:500}
   };
   var F=new Intl.NumberFormat('ru-RU');
   function rub(n){return F.format(Math.round(n))+' ₽'}
-  function per(r){return r.unit==='выход'?'за выход':'в час'}
+  function per(r){return r.unit==='выход'?'выход':'в час'}
   var tb=document.getElementById('tbody');
   R.concat(LATER.map(function(l){return {nm:l.nm,cost:l.cost,sale:l.sale,min:0,unit:'ч',note:l.note,later:true}})).forEach(function(r){
     var tr=document.createElement('tr'); if(r.later)tr.className='later';
