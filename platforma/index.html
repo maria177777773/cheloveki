@@ -156,25 +156,22 @@ td.num small{display:block;font-weight:500}
     <p class="lead">Берём на себя подбор, подготовку, координацию и контроль персонала.</p>
     <div class="cards">
       <div class="card"><b>1</b><h3>Заявка</h3><p>Ссылка на мероприятие: дата, время, место проведения и роль.</p></div>
-      <div class="card"><b>2</b><h3>Вызов в чат роли</h3><p>Запрос уходит хостес, аниматорам, гардеробщикам. Первыми видят те, у кого рейтинг выше.</p></div>
-      <div class="card"><b>3</b><h3>Галочка</h3><p>Человек подтверждает смену, список собирается сам.</p></div>
-      <div class="card"><b>4</b><h3>Оценка после смены</h3><p>Менеджер ставит оценку. Высокий рейтинг даёт ставку выше.</p></div>
+      <div class="card"><b>2</b><h3>Запрос</h3><p>Запрос уходит хостес, аниматорам, гардеробщикам. Первыми видят те, у кого рейтинг выше.</p></div>
+      <div class="card"><b>3</b><h3>Подтверждение</h3><p>Человек подтверждает смену, список собирается сам.</p></div>
+      <div class="card"><b>4</b><h3>Оценка</h3><p>Менеджер ставит оценку. Высокий рейтинг даёт ставку выше.</p></div>
     </div>
   </section>
 
   <section class="slide" id="ceny">
     <h2>Ставки на персонал</h2>
-    <p class="lead">Москва. Рабочий прайс агентства.</p>
     <div class="tbl-box"><table>
       <thead><tr><th>Специалист</th><th class="num">Исполнителю</th><th class="num">Клиенту</th><th class="num">Минимальный заказ</th><th class="num">Разница до расходов и налогов</th></tr></thead>
       <tbody id="tbody"></tbody>
     </table></div>
-    <p class="src">Разница: цена клиенту минус оплата исполнителю. Расходы агентства и налоги ещё не вычтены. Ставки декоратора и видеографа уточняются.</p>
   </section>
 
   <section class="slide" id="kalk">
     <h2>Стоимость сметы + калькулятор</h2>
-    <p class="lead">Выбери готовый ивент или задай людей и часы сам. Где есть минимальный заказ, считаем не меньше него.</p>
     <div class="calc">
       <div class="panel">
         <div class="presets" id="presets"></div>
@@ -192,14 +189,12 @@ td.num small{display:block;font-weight:500}
         <p class="lb brk-t">Из чего складывается</p>
         <div class="brk" id="brk"></div>
         <div class="profit"><p class="lb">Наш доход</p><p class="big" id="profit">0 ₽</p><p id="margin">маржа 0% от чека</p></div>
-        <p class="note">Без расходов агентства и налогов. Аниматор с программой и Дед Мороз считаются за программу.</p>
       </div>
     </div>
   </section>
 
   <section class="slide" id="mesyac">
     <h2>Что даёт месяц</h2>
-    <p class="lead">Пример: 20 корпоративов на 100 гостей в месяц по готовому решению «Корпоратив» из калькулятора.</p>
     <div class="month">
       <div class="card"><p>Оборот в месяц</p><p class="n" id="mSale">0 ₽</p></div>
       <div class="card"><p>Наш доход в месяц</p><p class="n" id="mProfit">0 ₽</p></div>
@@ -315,9 +310,11 @@ td.num small{display:block;font-weight:500}
   }
   apply(START,'');
   var m=total(PRESETS['Корпоратив']);
-  document.getElementById('mSale').textContent=rub(m.sale*20);
-  document.getElementById('mProfit').textContent=rub((m.sale-m.cost)*20);
-  document.getElementById('mShifts').textContent=F.format(m.ppl*20);
+  // месяц: 40 корпоративов по готовому решению «Корпоратив» (Маша 23.10: доход не меньше 1,5 млн)
+  var MONTH=40;
+  document.getElementById('mSale').textContent=rub(m.sale*MONTH);
+  document.getElementById('mProfit').textContent=rub((m.sale-m.cost)*MONTH);
+  document.getElementById('mShifts').textContent=F.format(m.ppl*MONTH);
   // подсветка раздела в навигации
   var links=[].slice.call(document.querySelectorAll('#dots a'));
   if('IntersectionObserver' in window){
