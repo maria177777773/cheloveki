@@ -110,6 +110,9 @@ td.num small{display:block;font-weight:500}
 #ceny td small{font-size:var(--fs-s)}
 #ceny th{font-size:var(--fs-s);padding-block:16px}
 #ceny td.num small{display:inline;margin-left:6px}
+#ceny th,#ceny td{padding-inline:18px}
+#ceny th.num{white-space:normal;max-width:220px}
+#ceny table{width:100%}
 .res .profit .big{font-size:var(--fs-xxl)}
 .res .note{margin-top:16px;font-size:var(--fs-s);opacity:.9}
 .month{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:32px}
@@ -153,29 +156,29 @@ td.num small{display:block;font-weight:500}
     <p class="lead">Человеки: платформа персонала для ивентов. Менеджер отправляет заявку, она уходит в чат нужной роли, люди подтверждают смену галочкой. Каждый обучен и с рейтингом.</p>
     <div class="cards">
       <div class="card"><b>1</b><h3>Заявка</h3><p>Роль, дата, время, сколько человек. За минуту.</p></div>
-      <div class="card"><b>2</b><h3>Вызов в чат роли</h3><p>Запрос уходит хостес, аниматорам, хелперам. Первыми видят те, у кого рейтинг выше.</p></div>
+      <div class="card"><b>2</b><h3>Вызов в чат роли</h3><p>Запрос уходит хостес, аниматорам, гардеробщикам. Первыми видят те, у кого рейтинг выше.</p></div>
       <div class="card"><b>3</b><h3>Галочка</h3><p>Человек подтверждает смену, список собирается сам.</p></div>
       <div class="card"><b>4</b><h3>Оценка после смены</h3><p>Менеджер ставит оценку. Высокий рейтинг даёт ставку выше.</p></div>
     </div>
   </section>
 
   <section class="slide" id="ceny">
-    <h2>Ставки и цены</h2>
-    <p class="lead">Исполнителю: сколько платим человеку. Клиенту: цена продажи. Разница остаётся нам.</p>
+    <h2>Ставки на персонал</h2>
+    <p class="lead">Москва. Рабочий прайс агентства.</p>
     <div class="tbl-box"><table>
-      <thead><tr><th>Роль</th><th class="num">Исполнителю</th><th class="num">Клиенту</th><th class="num">Наш доход</th><th class="num">Наценка</th><th class="num">Минимум</th><th class="num">Клиенту за минимум</th></tr></thead>
+      <thead><tr><th>Специалист</th><th class="num">Исполнителю</th><th class="num">Клиенту</th><th class="num">Минимальный заказ</th><th class="num">Разница до расходов и налогов</th></tr></thead>
       <tbody id="tbody"></tbody>
     </table></div>
-    <p class="src">Ставки утверждены на встрече 21 октября 2026. Промоутер и официант по рынку Москвы (<a href="https://btl-me.ru/uslugi/promoutery/promouter-na-vyistavku">btl-me.ru</a>, <a href="https://hh.ru/vacancy/136726513">hh.ru</a>), ставку промоутера уточним.</p>
+    <p class="src">Разница: цена клиенту минус оплата исполнителю. Расходы агентства и налоги ещё не вычтены. Ставки декоратора и видеографа уточняются.</p>
   </section>
 
   <section class="slide" id="kalk">
     <h2>Стоимость сметы + калькулятор</h2>
-    <p class="lead">Выбери готовый ивент или задай людей и часы сам. Где есть минимум, считаем не меньше 6 часов.</p>
+    <p class="lead">Выбери готовый ивент или задай людей и часы сам. Где есть минимальный заказ, считаем не меньше него.</p>
     <div class="calc">
       <div class="panel">
         <div class="presets" id="presets"></div>
-        <div class="lbls"><span>Роль</span><span>Людей</span><span>Часов, выходов</span></div>
+        <div class="lbls"><span>Специалист</span><span>Людей</span><span>Часов, программ</span></div>
         <div id="rows"></div>
         <div class="extra">
           <label>Дней <span class="step"><button type="button" data-d="-1" aria-label="Меньше дней">−</button><input id="days" type="number" min="1" max="30" value="1" inputmode="numeric" aria-label="Дней"><button type="button" data-d="1" aria-label="Больше дней">+</button></span></label>
@@ -189,7 +192,7 @@ td.num small{display:block;font-weight:500}
         <p class="lb brk-t">Из чего складывается</p>
         <div class="brk" id="brk"></div>
         <div class="profit"><p class="lb">Наш доход</p><p class="big" id="profit">0 ₽</p><p id="margin">маржа 0% от чека</p></div>
-        <p class="note">Без налогов, такси после 00:30 и формы. Ведущий считается за выход.</p>
+        <p class="note">Без расходов агентства и налогов. Аниматор с программой и Дед Мороз считаются за программу.</p>
       </div>
     </div>
   </section>
@@ -208,56 +211,57 @@ td.num small{display:block;font-weight:500}
     <div class="foot-band">
       <p class="foot-top"><span>Проект Анастасии Бариновой</span><span>Куратор: Мария Варламова</span></p>
       <svg class="foot-logo" data-art="логотип" viewBox="0 0 1000 210" role="img" aria-label="человеки"><text class="fit" data-max="990" x="500" y="168" text-anchor="middle" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="800" font-size="236" fill="#FFC2E0">человеки</text></svg>
-      <p class="foot-roles">аниматоры · хостес · хелперы · промоутеры · декораторы · координаторы · фотографы · ведущие · гардероб · охрана</p>
+      <p class="foot-roles">хостес · гардероб · парковка · охрана · аниматоры · Дед Мороз · фокусники · ведущие · декораторы · фотографы · видеографы</p>
     </div>
   </footer>
 </div>
 
 <script>
 (function(){
-  // ставки: cost и sale в ₽ за час (или за выход у ведущего), min: минимум часов на человека
+  // ставки Насти, слайд «Ставки на персонал» (Claude-бот, 23.10.2026): cost и sale в ₽ за час или за программу, min: минимальный заказ
   var R=[
-    {id:'anim', nm:'Аниматор',            cost:1000,     sale:10000/6, min:6, unit:'ч'},
-    {id:'host', nm:'Хостес',              cost:10000/6,  sale:14000/6, min:6, unit:'ч'},
-    {id:'promo',nm:'Промоутер',           cost:450,      sale:675,     min:0, unit:'ч', note:'по рынку, уточним'},
-    {id:'help', nm:'Хелпер',              cost:1000,     sale:1500,    min:0, unit:'ч'},
-    {id:'coord',nm:'Координатор проекта', cost:2000,     sale:3000,    min:6, unit:'ч'},
-    {id:'photo',nm:'Фотограф',            cost:2000,     sale:3000,    min:0, unit:'ч'},
-    {id:'host2',nm:'Ведущий',             cost:20000,    sale:30000,   min:0, unit:'выход'},
-    {id:'dm',   nm:'Дед Мороз',           cost:15000,    sale:25000,   min:0, unit:'ч'},
-    {id:'sn',   nm:'Снегурочка',          cost:15000,    sale:25000,   min:0, unit:'ч'},
-    {id:'deco', nm:'Декоратор',           cost:1500,     sale:2250,    min:6, unit:'ч'},
-    {id:'park', nm:'Парковщик',           cost:1500,     sale:2000,    min:6, unit:'ч'},
-    {id:'ward', nm:'Гардеробщик',         cost:1500,     sale:2000,    min:6, unit:'ч'},
-    {id:'sec',  nm:'Охрана',              cost:2000,     sale:3200,    min:0, unit:'ч'}
+    {id:'host', nm:'Хостес',      cost:1000, sale:1500,  min:6, unit:'ч'},
+    {id:'ward', nm:'Гардеробщик', cost:500,  sale:1000,  min:6, unit:'ч'},
+    {id:'park', nm:'Парковщик',   cost:600,  sale:1200,  min:6, unit:'ч', note:'организация потока'},
+    {id:'sec',  nm:'Охрана',      cost:1200, sale:1800,  min:6, unit:'ч', note:'через ЧОП'},
+    {id:'anim', nm:'Аниматор',    cost:1000, sale:1800,  min:4, unit:'ч', note:'без отдельной программы'},
+    {id:'animp',nm:'Аниматор', short:'Аниматор с программой', cost:3500, sale:6000,  min:1, unit:'прогр', note:'с готовой программой'},
+    {id:'dm',   nm:'Дед Мороз',   cost:7000, sale:12000, min:1, unit:'прогр', note:'один артист, вне пиковых дат'},
+    {id:'magic',nm:'Фокусник',    cost:9000, sale:15000, min:1, unit:'ч', note:'микромагия'},
+    {id:'mc',   nm:'Ведущий',     cost:6000, sale:10000, min:4, unit:'ч', note:'без DJ и техники'},
+    {id:'photo',nm:'Фотограф',    cost:2500, sale:4000,  min:2, unit:'ч'}
   ];
-  var LATER=[{nm:'Официант',cost:500,sale:750,note:'пока не набираем'}];
-  // стартовые значения: 6 часов у всех, людей 0 или 1-2; ведущий 1 выход, Дед Мороз и Снегурочка по 1 часу
-  var START={anim:[2,6],host:[1,6],promo:[0,6],help:[2,6],coord:[1,6],photo:[0,6],host2:[0,1],dm:[0,1],sn:[0,1],deco:[0,6],park:[0,6],ward:[0,6],sec:[0,6],days:1};
+  var LATER=[{nm:'Декоратор'},{nm:'Видеограф'}];
+  // стартовые значения: людей 0 или 1-2, часы по минимальному заказу
+  var START={host:[1,6],ward:[0,6],park:[0,6],sec:[0,6],anim:[2,4],animp:[0,1],dm:[0,1],magic:[0,1],mc:[1,4],photo:[0,2],days:1};
   var PRESETS={
-    'Тимбилдинг':{coord:[1,6],host2:[1,1],anim:[4,6],help:[4,6],photo:[1,4],host:[2,6],days:1},
-    'Корпоратив':{coord:[1,6],host2:[1,1],deco:[2,6],host:[2,6],ward:[2,6],park:[1,6],photo:[1,4],sec:[2,6],dm:[1,1],sn:[1,1],days:1},
-    'Детский праздник':{anim:[2,6],help:[1,6],photo:[1,2],days:1},
-    'Ёлка':{coord:[1,6],deco:[1,6],anim:[3,6],dm:[1,1],sn:[1,1],help:[2,6],ward:[1,6],photo:[1,3],days:1},
-    'Выставка 3 дня':{coord:[1,8],host:[3,8],promo:[2,8],days:3}
+    'Тимбилдинг':{mc:[1,4],anim:[4,6],host:[2,6],photo:[1,2],days:1},
+    'Корпоратив':{mc:[1,4],host:[2,6],ward:[2,6],park:[1,6],sec:[2,6],magic:[1,1],photo:[1,3],days:1},
+    'Детский праздник':{animp:[2,1],anim:[1,4],photo:[1,2],days:1},
+    'Ёлка':{dm:[1,1],animp:[1,1],anim:[2,4],ward:[1,6],photo:[1,2],days:1},
+    'Выставка 3 дня':{host:[3,8],sec:[1,8],days:3}
   };
   var F=new Intl.NumberFormat('ru-RU');
   function rub(n){return F.format(Math.round(n))+' ₽'}
-  function per(r){return r.unit==='выход'?'выход':'в час'}
+  function per(r){return r.unit==='прогр'?'за программу':'в час'}
+  function minTxt(r){return r.unit==='прогр'?'1 программа, 1 час':r.min+' '+(r.min===1?'час':r.min<5?'часа':'часов')+' · '+rub(r.sale*r.min)}
   var tb=document.getElementById('tbody');
-  R.concat(LATER.map(function(l){return {nm:l.nm,cost:l.cost,sale:l.sale,min:0,unit:'ч',note:l.note,later:true}})).forEach(function(r){
-    var tr=document.createElement('tr'); if(r.later)tr.className='later';
-    var minTxt=r.min?r.min+' ч':(r.unit==='выход'?'1 выход':'нет');
-    var minSale=r.min?rub(r.sale*r.min):rub(r.sale);
-    tr.innerHTML='<td><b>'+r.nm+'</b>'+(r.note?'<small>'+r.note+'</small>':'')+'</td><td class="num">'+rub(r.cost)+'<small>'+per(r)+'</small></td><td class="num sale">'+rub(r.sale)+'<small>'+per(r)+'</small></td><td class="num">'+rub(r.sale-r.cost)+'</td><td class="num">+'+Math.round((r.sale/r.cost-1)*100)+'%</td><td class="num">'+minTxt+'</td><td class="num">'+minSale+'</td>';
+  R.forEach(function(r){
+    var tr=document.createElement('tr');
+    tr.innerHTML='<td><b>'+r.nm+'</b>'+(r.note?'<small>'+r.note+'</small>':'')+'</td><td class="num">'+rub(r.cost)+'<small>'+per(r)+'</small></td><td class="num sale">'+rub(r.sale)+'<small>'+per(r)+'</small></td><td class="num">'+minTxt(r)+'</td><td class="num">'+rub(r.sale-r.cost)+'<small>'+per(r)+'</small></td>';
+    tb.appendChild(tr);
+  });
+  LATER.forEach(function(l){
+    var tr=document.createElement('tr');tr.className='later';
+    tr.innerHTML='<td><b>'+l.nm+'</b></td><td class="num">уточним</td><td class="num">уточним</td><td class="num">уточним</td><td class="num">уточним</td>';
     tb.appendChild(tr);
   });
   var rows=document.getElementById('rows');
   function stepper(id,val,label){return '<span class="step"><button type="button" data-k="'+id+'" data-v="-1" aria-label="Меньше: '+label+'">−</button><input type="number" min="0" max="999" value="'+val+'" data-i="'+id+'" inputmode="numeric" aria-label="'+label+'"><button type="button" data-k="'+id+'" data-v="1" aria-label="Больше: '+label+'">+</button></span>'}
   R.forEach(function(r){
     var d=document.createElement('div');d.className='row';
-    var hint=rub(r.sale)+' '+per(r)+(r.min?' · мин. '+r.min+' ч':'');
-    d.innerHTML='<span class="nm">'+r.nm+'<small>'+hint+'</small></span>'+stepper(r.id+'.n',0,r.nm+', людей')+stepper(r.id+'.h',0,r.nm+(r.unit==='выход'?', выходов':', часов'));
+    var hint=(r.note?r.note+' · ':'')+rub(r.sale)+' '+per(r)+(r.unit==='ч'&&r.min>1?' · мин. '+r.min+' ч':'');
+    d.innerHTML='<span class="nm">'+r.nm+'<small>'+hint+'</small></span>'+stepper(r.id+'.n',0,r.nm+', людей')+stepper(r.id+'.h',0,r.nm+(r.unit==='прогр'?', программ':', часов'));
     rows.appendChild(d);
   });
   function val(k){var i=rows.querySelector('[data-i="'+k+'"]');return Math.max(0,+i.value||0)}
@@ -271,7 +275,7 @@ td.num small{display:block;font-weight:500}
       var n=p?((p[r.id]||[0,0])[0]):val(r.id+'.n'), h=p?((p[r.id]||[0,0])[1]):val(r.id+'.h'), hh=hrs(r,n,h);
       if(!n)return;
       cost+=n*hh*r.cost*d; sale+=n*hh*r.sale*d; ppl+=n;
-      parts.push([r.nm, n+' × '+hh+(r.unit==='выход'?' вых.':' ч')+(d>1?' × '+d+' дн.':''), n*hh*r.sale*d]);
+      parts.push([r.short||r.nm, n+' × '+hh+(r.unit==='прогр'?' прогр.':' ч')+(d>1?' × '+d+' дн.':''), n*hh*r.sale*d]);
     });
     return {cost:cost,sale:sale,ppl:ppl,parts:parts};
   }
